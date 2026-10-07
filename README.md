@@ -2,10 +2,14 @@
 
 The data behind [astrona.io](https://astrona.io), kept as plain YAML so anyone
 can read it, suggest a change, and reuse it. Each kind of data has its own
-top-level folder. Today there is one kind, **program pages**: the ecosystem
-landscapes (`/cncf-landscape`, `/landscape/apache`, …) and the certification
-paths (`/kubestronaut`, `/golden-kubestronaut`). More kinds will follow as
-sibling folders, each with its own schema.
+top-level folder:
+
+- **program pages**: the ecosystem landscapes (`/cncf-landscape`,
+  `/landscape/apache`, …) and the certification paths (`/kubestronaut`,
+  `/golden-kubestronaut`);
+- **knowledge hub**: the sections, topics and articles under `/knowledge-hub`.
+
+More kinds will follow as sibling folders.
 
 Git is the source of truth. When a pull request is merged to `main`, the
 content sync service applies it to the site's database; edits made directly in
@@ -22,6 +26,7 @@ scripts/validate.py                the check CI runs on every pull request
 | Folder | Kind | Synced into |
 | --- | --- | --- |
 | `program-pages/` | landscapes and certification paths (file name = URL slug) | content service |
+| `knowledge-hub/` | sections, topics, Markdown articles, related-article groups | knowledge-hub service |
 
 Adding a kind: a new folder, its schema, a validator entry, and an entry in the
 content sync service's `KINDS` registry (folder → parser → owning service).
@@ -66,9 +71,48 @@ it for completion.
   they show as *Manual* and survive a sync. Git always wins: list a card with
   the same key here and it takes that card over.
 
+## The knowledge hub
+
+```
+knowledge-hub/<section>/_section.yaml            title, description, sort_order
+knowledge-hub/<section>/<topic>/_topic.yaml      title, description, sort_order
+knowledge-hub/<section>/<topic>/<article>.md     one article; the file name is its URL slug
+knowledge-hub/related-groups.yaml                "related articles" groups
+```
+
+An article is Markdown with front matter:
+
+```markdown
+---
+title: Cilium
+summary: Cilium is a modern Kubernetes CNI …
+published: true                 # false keeps it off the site
+published_at: '2026-03-14T09:13:11Z'
+---
+
+## What Cilium is and why it matters
+
+Each `## heading` starts one block on the page. Use `###` and deeper inside a block.
+
+## Notes
+
+<!-- plaintext -->
+A block whose first line is that comment is shown as plain text.
+```
+
+- Slugs are global: no two topics, and no two articles, may share one.
+- Moving an article to another folder moves it on the site; renaming the file
+  makes it a new article (its votes stay with the old one, which is deleted).
+- `related-groups.yaml` lists groups by `title`, with `articles` (the group,
+  in order) and `shown_on` (the articles whose page shows it), both as slugs.
+- The admin app may add its own sections, topics, articles and groups; they
+  show as *Manual* and survive a sync. Git always wins: a file with the same
+  slug (a group: the same title) takes that row over.
+
 ## Contributing
 
-1. Edit or add a file under `program-pages/`.
+1. Edit or add a file under `program-pages/` or `knowledge-hub/` — or use
+   "Edit this page on GitHub" at the foot of the page on the site.
 2. Check it: `pip install pyyaml jsonschema && python3 scripts/validate.py`.
 3. Open a pull request. CI runs the same check; a maintainer merges, and the
    site updates within a minute.
@@ -81,5 +125,5 @@ workspace, with this repo cloned under `repos/`:
 ```sh
 ./bin/astrona-agent content status     # what differs between this repo and your local database
 ./bin/astrona-agent content sync       # apply it (asks nothing; --dry-run to preview)
-./bin/astrona-agent content export     # write your local database back into these files
+./bin/astrona-agent content export --kind knowledge-hub --write   # local database back into these files
 ```

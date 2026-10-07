@@ -1,0 +1,32 @@
+# Related-article groups. `articles` is the group in order; `shown_on` lists the
+# articles whose page shows it. Both use article slugs (file names).
+- title: Kubernetes - CNI
+  description: ''
+  articles:
+  - calico
+  - flannel
+  - weave-net
+  - cilium
+  shown_on:
+  - calico
+  - cilium
+  - flannel
+  - weave-net
+- title: PromQL - Vector
+  description: ''
+  articles:
+  - vector-matching
+  - vector
+  shown_on:
+  - vector
+  - vector-matching
+- title: Reliability
+  description: ''
+  articles:
+  - sli-service-level-indicator
+  - slo-service-level-objective
+  - sla-service-level-agreement
+  shown_on:
+  - sla-service-level-agreement
+  - sli-service-level-indicator
+  - slo-service-level-objective

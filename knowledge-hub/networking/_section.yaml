@@ -1,0 +1,6 @@
+# Section: Networking
+title: Networking
+description: >-
+  Understand how services communicate, route traffic, enforce policies, and expose applications securely
+  across clusters, platforms, and environments.
+sort_order: 0
