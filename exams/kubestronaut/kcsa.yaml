@@ -1,0 +1,78 @@
+# Kubernetes and Cloud Security Associate — public exam definition.
+# Question banks are not here and never will be: this repository is public.
+long_name: Kubernetes and Cloud Security Associate
+status: in_test
+pass_score: 75
+max_breaks: 0
+description: |-
+  The Kubernetes and Cloud Security Associate (KCSA) certification from the Cloud Native Computing Foundation (CNCF) validates your foundational understanding of Kubernetes security and cloud native security principles. It’s designed for engineers who want to build security awareness into Kubernetes platforms from day one — before moving on to advanced, hands-on security certifications.
+
+  The KCSA exam is a multiple-choice, conceptual, and scenario-based certification that focuses on why security controls exist, not how to implement them in detail. Topics include Kubernetes security fundamentals, cluster and workload protection, supply chain security, identity and access management, network security concepts, and observability and auditing. The exam also tests your understanding of shared responsibility and cloud native threat models.
+
+  Although KCSA is an associate-level certification, the questions are precise and security-focused, often presenting multiple answers that appear correct. Without targeted practice, it’s easy to misinterpret intent or choose incomplete solutions.
+
+  Using KCSA simulator exams helps you understand CNCF question patterns, sharpen your security decision-making, and gain confidence under time pressure. Simulator-based preparation significantly improves your chances of passing on the first attempt and builds a strong foundation for advanced certifications like CKS.
+
+  Practice security-first. Pass with confidence. Start your KCSA preparation today.
+domains:
+- name: Overview of Cloud Native Security
+  weight: 14
+  description: |-
+    The 4Cs of Cloud Native Security
+    Cloud Provider and Infrastructure Security
+    Controls and Frameworks
+    Isolation Techniques
+    Artifact Repository and Image Security
+    Workload and Application Code Security
+- name: Kubernetes Cluster Component Security
+  weight: 22
+  description: |-
+    API Server
+    Controller Manager
+    Scheduler
+    Kubelet
+    Container Runtime
+    KubeProxy
+    Pod
+    Etcd
+    Container Networking
+    Client Security
+    Storage
+- name: Kubernetes Security Fundamentals
+  weight: 22
+  description: |-
+    Pod Security Standards
+    Pod Security Admissions
+    Authentication
+    Authorization
+    Secrets
+    Isolation and Segmentation
+    Audit Logging
+    Network Policy
+- name: Kubernetes Threat Model
+  weight: 16
+  description: |-
+    Kubernetes Trust Boundaries and Data Flow
+    Persistence
+    Denial of Service
+    Malicious Code Execution and Compromised Applications in Containers
+    Attacker on the Network
+    Access to Sensitive Data
+    Privilege Escalation
+- name: Platform Security
+  weight: 16
+  description: |-
+    Supply Chain Security
+    Image Repository
+    Observability
+    Service Mesh
+    PKI
+    Connectivity
+    Admission Control
+- name: Compliance and Security Frameworks
+  weight: 10
+  description: |-
+    Compliance Frameworks
+    Threat Modelling Frameworks
+    Supply Chain Compliance
+    Automation and Tooling

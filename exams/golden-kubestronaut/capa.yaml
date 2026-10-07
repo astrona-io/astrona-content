@@ -1,0 +1,45 @@
+# Certified Argo Project Associate — public exam definition.
+# Question banks are not here and never will be: this repository is public.
+long_name: Certified Argo Project Associate
+status: in_test
+pass_score: 75
+max_breaks: 3
+description: |-
+  The Certified Argo Project Associate (CAPA) certification validates your understanding of GitOps and workflow automation using the Argo Project. It’s designed for engineers who want to prove foundational knowledge of Argo tools and modern continuous delivery patterns in Kubernetes environments.
+
+  CAPA is a multiple-choice, conceptual, and scenario-based exam focused on why Argo tools are used and when to apply them — not on deep production configuration. The exam covers Argo CD fundamentals, GitOps principles, Argo Workflows, Argo Events, and high-level continuous delivery and automation concepts. You are tested on architecture, terminology, and common use cases across the Argo ecosystem.
+
+  Although CAPA is an associate-level certification, the questions are precisely worded and concept-heavy, often including multiple answers that appear correct without a clear understanding of GitOps and Argo design principles.
+
+  Using CAPA simulator exams helps you understand CNCF question patterns, avoid common traps, and build confidence before exam day. Simulator-based practice significantly increases your chances of passing on the first attempt.
+
+  Master GitOps fundamentals. Automate with confidence. Pass CAPA.
+domains:
+- name: Argo Workflows
+  weight: 36
+  description: |-
+    Understand Argo Workflow Fundamentals
+    Generating and Consuming Artifacts
+    Understand Argo Workflow Templates
+    Understand the Argo Workflow Spec
+    Work with DAG (Directed-Acyclic Graphs)
+    Run Data Processing Jobs with Argo Workflows
+- name: ARGO CD
+  weight: 34
+  description: |-
+    Understand Argo CD Fundamentals
+    Synchronize Applications Using Argo CD
+    Use Argo CD Application
+    Configure Argo CD with Helm and Kustomize
+    Identify Common Reconciliation Patterns
+- name: Argo Rollouts
+  weight: 18
+  description: |-
+    Understand Argo Rollouts Fundamentals
+    Use Common Progressive Rollout Strategies
+    Describe Analysis Template and AnalysisRun
+- name: Argo Events
+  weight: 12
+  description: |-
+    Understand Argo Events Fundamentals
+    Understand Argo Event Components and Architecture

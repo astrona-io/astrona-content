@@ -7,7 +7,11 @@ top-level folder:
 - **program pages**: the ecosystem landscapes (`/cncf-landscape`,
   `/landscape/apache`, …) and the certification paths (`/kubestronaut`,
   `/golden-kubestronaut`);
-- **knowledge hub**: the sections, topics and articles under `/knowledge-hub`.
+- **knowledge hub**: the sections, topics and articles under `/knowledge-hub`;
+- **exams**: each exam's public definition (`/exams/<name>`) — name, description,
+  pass score and its domains with their weights. Never the questions: question
+  banks stay private;
+- **courses**: the course catalogue, its sections and lessons (empty for now).
 
 More kinds will follow as sibling folders.
 
@@ -27,6 +31,8 @@ scripts/validate.py                the check CI runs on every pull request
 | --- | --- | --- |
 | `program-pages/` | landscapes and certification paths (file name = URL slug) | content service |
 | `knowledge-hub/` | sections, topics, Markdown articles, related-article groups | knowledge-hub service |
+| `exams/` | exam groups (`<group>/_group.yaml`) and exams (`<group>/<exam>.yaml`) | assessment engine |
+| `courses/` | one file per course — see [`courses/README.md`](courses/README.md) | course engine |
 
 Adding a kind: a new folder, its schema, a validator entry, and an entry in the
 content sync service's `KINDS` registry (folder → parser → owning service).
@@ -108,6 +114,26 @@ A block whose first line is that comment is shown as plain text.
 - The admin app may add its own sections, topics, articles and groups; they
   show as *Manual* and survive a sync. Git always wins: a file with the same
   slug (a group: the same title) takes that row over.
+
+## Exams
+
+```yaml
+# exams/kubestronaut/kcna.yaml — the file name is the exam's URL (/exams/kcna)
+long_name: Kubernetes and Cloud Native Associate
+status: in_test            # draft | in_test | published | archived | deprecated | unpublished
+pass_score: 75
+max_breaks: 3
+description: …
+domains:                    # in display order; weights must add up to 100
+  - name: Kubernetes Fundamentals
+    weight: 44
+    description: …
+```
+
+Domains are matched by name: questions and course sections point at them, so
+renaming a domain replaces it — and the sync refuses to remove a domain that
+questions still use. An exam removed from here that has attempts or questions
+is archived, not deleted.
 
 ## Contributing
 

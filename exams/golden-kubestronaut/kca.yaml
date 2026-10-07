@@ -1,0 +1,66 @@
+# Kyverno Certified Associate — public exam definition.
+# Question banks are not here and never will be: this repository is public.
+long_name: Kyverno Certified Associate
+status: in_test
+pass_score: 75
+max_breaks: 3
+description: |-
+  The Kyverno Certified Associate (KCA) certification validates your foundational understanding of Kubernetes policy management and governance using Kyverno. It’s designed for engineers who want to enforce security, compliance, and best practices in Kubernetes clusters without writing complex code.
+
+  KCA is a multiple-choice, conceptual, and scenario-based exam focused on why policy-as-code matters and how Kyverno applies policies natively within Kubernetes. The exam covers Kyverno architecture, policy types (validate, mutate, generate), admission control concepts, governance workflows, and common use cases such as security enforcement and compliance automation. The emphasis is on understanding policy behavior rather than deep rule authoring.
+
+  Although KCA is an associate-level certification, the questions are precisely worded and policy-driven, often including multiple answers that appear correct without a clear understanding of Kyverno’s intent and capabilities.
+
+  Using KCA simulator exams helps you understand exam question patterns, avoid common policy traps, and build confidence before exam day. Simulator-based practice significantly increases your chance of passing on the first attempt.
+
+  Enforce policies with clarity. Govern Kubernetes with confidence. Pass KCA.
+domains:
+- name: Fundamentals of Kyverno
+  weight: 18
+  description: |-
+    Kyverno Policies & Rules
+    YAML Manifests
+    Admission Controllers
+    OCI Images
+- name: Installation, Configuration, and Upgrades
+  weight: 18
+  description: |-
+    Helm-based Installation and Configuration
+    Kyverno Custom Resource Definitions (CRDs)
+    Controller Configuration with Flags
+    Configuring Kyverno RBAC, roles, and permissions
+    High Availability Installations
+    Upgrading Kyverno
+- name: Kyverno CLI
+  weight: 12
+  description: |-
+    apply
+    test
+    jp
+    Installing Kyverno CLI
+- name: Applying Policies
+  weight: 10
+  description: |-
+    Applying Policy in Cluster
+    Resource Selection
+    Common Policy Settings for Kyverno Rules
+- name: Writing Policies
+  weight: 32
+  description: |-
+    Validation Rules
+    Preconditions
+    Background Scans
+    Mutation Rules
+    Generation Rules
+    VerifyImage Rules
+    Variables & API Calls in Policies
+    JSON Patches
+    Autogen Rules
+    Cleanup Policies
+    Common Expression Language (CEL)
+- name: Policy Management
+  weight: 10
+  description: |-
+    Policy Reports
+    PolicyExceptions
+    Kyverno Metrics

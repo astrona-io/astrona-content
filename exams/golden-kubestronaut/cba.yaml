@@ -1,0 +1,48 @@
+# Certified Backstage Associate — public exam definition.
+# Question banks are not here and never will be: this repository is public.
+long_name: Certified Backstage Associate
+status: in_test
+pass_score: 75
+max_breaks: 3
+description: |-
+  The Certified Backstage Associate (CBA) certification validates your understanding of developer portals and platform engineering concepts using Backstage. It’s designed for engineers and platform teams who want to improve developer experience by centralizing services, documentation, and software ownership in Kubernetes and cloud native environments.
+
+  CBA is a multiple-choice, conceptual, and scenario-based exam focused on why Backstage exists and how it supports internal developer platforms. The exam covers Backstage architecture, software catalog fundamentals, templates, plugins, ownership models, and platform engineering best practices. You are tested on terminology, workflows, and common use cases rather than deep implementation details.
+
+  Although CBA is an associate-level certification, the questions are precise and intent-driven, often including multiple answers that appear correct without a clear understanding of developer experience and platform design principles.
+
+  Using CBA simulator exams helps you understand exam question patterns, avoid common traps, and build confidence before exam day. Simulator-based practice significantly increases your chance of passing on the first attempt.
+
+  Build better platforms. Empower developers. Pass CBA.
+domains:
+- name: Backstage Development Workflow
+  weight: 24
+  description: |-
+    Build and run Backstage projects locally
+    Understand local development workflows
+    Compile a Backstage project with TypeScript
+    Download and install dependencies for a Backstage project with NPM/Yarn
+    Use Docker to build a container image of a Backstage project
+- name: Backstage Infrastructure
+  weight: 22
+  description: |-
+    Understand the Backstage framework
+    Configure Backstage
+    Deploy Backstage to production
+    Understand Backstage client-server architecture
+- name: Backstage Catalog
+  weight: 22
+  description: |-
+    Understand how/why to use Backstage Catalog
+    Populate Backstage Catalog
+    Using annotations
+    Working with manually registered entity locations
+    Troubleshooting entity ingestion
+    Working with automated ingestion
+- name: Customizing Backstage
+  weight: 32
+  description: |-
+    Understand frontend versus backend plugins
+    Customizing Backstage plugins
+    Make changes to React code in Backstage App
+    Using Material UI components

@@ -1,0 +1,59 @@
+# Certified Kubernetes Administrator — public exam definition.
+# Question banks are not here and never will be: this repository is public.
+long_name: Certified Kubernetes Administrator
+status: in_test
+pass_score: 66
+max_breaks: 3
+description: |-
+  The Certified Kubernetes Administrator (CKA) certification from the Cloud Native Computing Foundation (CNCF) is the industry-recognized standard for validating real-world Kubernetes administration skills. It proves you can install, configure, operate, and troubleshoot Kubernetes clusters in production environments.
+
+  CKA is a hands-on, performance-based exam taken in a live Kubernetes cluster. You are tested on cluster architecture, workload scheduling, networking, storage, security, upgrades, and troubleshooting — all under strict time pressure. There are no multiple-choice questions; you must solve practical tasks directly in Kubernetes using the CLI and YAML.
+
+  Many candidates fail CKA not because they lack knowledge, but because they struggle with speed, accuracy, and exam workflow. Knowing what to do isn’t enough — you must execute it correctly and fast.
+
+  This is where CKA simulator exams are essential. Practicing in realistic exam environments helps you master time management, build muscle memory, avoid common mistakes, and stay calm under pressure. Simulator-based preparation dramatically increases your chances of passing on the first attempt and prepares you for real production work.
+
+  Train like the exam. Pass with confidence. Earn your CKA.
+domains:
+- name: Storage
+  weight: 10
+  description: |-
+    Implement storage classes and dynamic volume provisioning
+    Configure volume types, access modes and reclaim policies
+    Manage persistent volumes and persistent volume claims
+- name: Troubleshooting
+  weight: 30
+  description: |-
+    Troubleshoot clusters and nodes
+    Troubleshoot cluster components
+    Monitor cluster and application resource usage
+    Manage and evaluate container output streams
+    Troubleshoot services and networking
+- name: Workloads & Scheduling
+  weight: 15
+  description: |-
+    Understand application deployments and how to perform rolling update and rollbacks
+    Use ConfigMaps and Secrets to configure applications
+    Configure workload autoscaling
+    Understand the primitives used to create robust, self-healing, application deployments
+    Configure Pod admission and scheduling (limits, node affinity, etc.)
+- name: Cluster Architecture, Installation & Configuration
+  weight: 25
+  description: |-
+    Manage role based access control (RBAC)
+    Prepare underlying infrastructure for installing a Kubernetes cluster
+    Create and manage Kubernetes clusters using kubeadm
+    Manage the lifecycle of Kubernetes clusters
+    Implement and configure a highly-available control plane
+    Use Helm and Kustomize to install cluster components
+    Understand extension interfaces (CNI, CSI, CRI, etc.)
+    Understand CRDs, install and configure operators
+- name: Services & Networking
+  weight: 20
+  description: |-
+    Understand connectivity between Pods
+    Define and enforce Network Policies
+    Use ClusterIP, NodePort, LoadBalancer service types and endpoints
+    Use the Gateway API to manage Ingress traffic
+    Know how to use Ingress controllers and Ingress resources
+    Understand and use CoreDNS

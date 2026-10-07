@@ -1,0 +1,68 @@
+# Cilium Certified Associate — public exam definition.
+# Question banks are not here and never will be: this repository is public.
+long_name: Cilium Certified Associate
+status: in_test
+pass_score: 75
+max_breaks: 3
+description: |-
+  The Cilium Certified Associate (CCA) certification validates your foundational understanding of cloud native networking, security, and observability using Cilium and eBPF. It’s designed for engineers who want to prove they understand modern Kubernetes networking beyond traditional iptables-based approaches.
+
+  CCA is a multiple-choice, conceptual, and scenario-based exam that focuses on how Cilium works and why it’s used in Kubernetes environments. The exam covers Cilium architecture, eBPF fundamentals, Kubernetes networking concepts, network policies, service load balancing, identity-based security, and basic observability features like flow visibility. No deep kernel programming is required, but a clear conceptual understanding is essential.
+
+  Although CCA is an associate-level certification, the questions are precise and technology-specific, often including multiple answers that appear correct without a solid grasp of Cilium’s design principles.
+
+  Using CCA simulator exams helps you understand vendor-neutral question patterns, avoid common traps, and build confidence before exam day. Simulator-based practice significantly increases your chance of passing on the first attempt and prepares you for advanced networking and security certifications.
+
+  Understand eBPF. Secure the network. Pass CCA with confidence.
+domains:
+- name: Architecture
+  weight: 20
+  description: |-
+    Understand the Role of Cilium in Kubernetes Environments
+    Cilium Architecture
+    IP Address Management (IPAM) with Cilium
+    Cilium Component Roles
+    Datapath Models
+- name: Network Policy
+  weight: 18
+  description: |-
+    Interpret Cilium Network Polices and Intent
+    Understand Cilium's Identity-based Network Security Model
+    Policy Enforcement Modes
+    Policy Rule Structure
+    Kubernetes Network Policies versus Cilium Network Policies
+- name: Service Mesh
+  weight: 16
+  description: |-
+    Know How to use Ingress or Gateway API for Ingress Routing
+    Service Mesh Use Cases
+    Understand the Benefits of Gateway API over Ingress
+    Encrypting Traffic in Transit with Cilium
+    Sidecar-based versus Sidecarless Architectures
+- name: Network Observability
+  weight: 10
+  description: |-
+    Understand the Observability Capabilities of Hubble
+    Enabling Layer 7 Protocol Visibility
+    Know How to Use Hubble from the Command Line or the Hubble UI
+- name: Installation and Configuration
+  weight: 10
+  description: |-
+    Know How to Use Cilium CLI to Query and Modify the Configuration
+    Using Cilium CLI to Install Cilium, Run Connectivity Tests, and Monitor its Status
+- name: Cluster Mesh
+  weight: 10
+  description: |-
+    Understand the Benefits of Cluster Mesh for Multi-cluster Connectivity
+    Achieve Service Discovery and Load Balancing Across Clusters with Cluster Mesh
+- name: eBPF
+  weight: 10
+  description: |-
+    Understand the Role of eBPF in Cilium
+    eBPF Key Benefits
+    eBPF-based Platforms versus IPtables-based Platforms
+- name: BGP and External Networking
+  weight: 6
+  description: |-
+    Egress Connectivity Requirements
+    Understand Options to Connect Cilium-managed Clusters with External Networks

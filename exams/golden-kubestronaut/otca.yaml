@@ -1,0 +1,49 @@
+# OpenTelemetry Certified Associate — public exam definition.
+# Question banks are not here and never will be: this repository is public.
+long_name: OpenTelemetry Certified Associate
+status: in_test
+pass_score: 75
+max_breaks: 3
+description: |-
+  The OpenTelemetry Certified Associate (OTCA) certification validates your foundational understanding of observability and telemetry in cloud native systems using OpenTelemetry. It’s designed for engineers who want to prove they understand how metrics, logs, and traces work together to deliver end-to-end observability in modern Kubernetes environments.
+
+  OTCA is a multiple-choice, conceptual, and scenario-based exam focused on why OpenTelemetry exists and how it standardizes telemetry collection. The exam covers OpenTelemetry architecture, signals (metrics, logs, traces), instrumentation concepts, context propagation, collectors, exporters, and observability best practices. The emphasis is on understanding concepts and workflows rather than deep implementation or coding.
+
+  Although OTCA is an associate-level certification, the questions are precisely worded and concept-heavy, often including multiple answers that seem correct without a solid grasp of observability principles.
+
+  Using OTCA simulator exams helps you understand CNCF question patterns, avoid common traps, and build confidence before exam day. Simulator-based practice significantly increases your chance of passing on the first attempt.
+
+  See the system clearly. Observe with confidence. Pass OTCA.
+domains:
+- name: Fundamentals of Observability
+  weight: 18
+  description: |-
+    Telemetry Data
+    Semantic Conventions
+    Instrumentation
+    Analysis and Outcomes
+- name: The OpenTelemetry API and SDK
+  weight: 46
+  description: |-
+    Data Model
+    Composability and Extension
+    Configuration
+    Signals (Tracing, Metric, Log)
+    SDK Pipelines
+    Context Propagation
+    Agents
+- name: The OpenTelemetry Collector
+  weight: 26
+  description: |-
+    Configuration
+    Deployment
+    Scaling
+    Pipelines
+    Transforming Data
+- name: Maintaining and Debugging Observability Pipelines
+  weight: 10
+  description: |-
+    Context Propagation
+    Debugging Pipelines
+    Error Handling
+    Schema Management

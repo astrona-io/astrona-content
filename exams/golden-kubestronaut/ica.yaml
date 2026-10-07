@@ -1,0 +1,46 @@
+# Istio Certified Associate — public exam definition.
+# Question banks are not here and never will be: this repository is public.
+long_name: Istio Certified Associate
+status: in_test
+pass_score: 75
+max_breaks: 3
+description: |-
+  The Istio Certified Associate (ICA) certification validates your understanding of service mesh concepts and Istio fundamentals in modern cloud native environments. It’s designed for engineers who want to prove they understand how Istio improves traffic management, security, and observability for Kubernetes-based applications.
+
+  ICA is a multiple-choice, conceptual, and scenario-based exam focused on why Istio features exist and when to use them — not on deep production configuration. The exam covers core service mesh principles, Istio architecture, traffic routing, resiliency patterns, mutual TLS, authorization concepts, and observability features. It also tests your understanding of sidecar proxies, control plane components, and common use cases.
+
+  Although ICA is an associate-level certification, the questions are precisely worded and concept-heavy, often presenting multiple answers that seem correct without a clear understanding of Istio’s intent.
+
+  Using ICA simulator exams helps you learn CNCF question patterns, recognize common traps, and build confidence under time pressure. Practicing first significantly increases your chance of passing on the first attempt.
+
+  Understand the mesh. Control the traffic. Pass ICA with confidence.
+domains:
+- name: Installation, Upgrade & Configuration
+  weight: 20
+  description: |-
+    Installing Istio with istioctl or Helm
+    Installing Istio in Sidecar or Ambient Mode
+    Customizing your Istio Installation
+    Upgrading Istio (Canary, In-Place)
+- name: Traffic Management
+  weight: 35
+  description: |-
+    Configuring Ingress and Egress Traffic
+    Configuring Routing within a Service Mesh
+    Defining Traffic Policies with Destination Rules
+    Configuring Traffic Shifting
+    Connecting In-Mesh Workloads to External Workloads and Services
+    Using Resilience Features (circuit breaking, failover, outlier detection, timeouts, retries)
+    Using Fault Injection
+- name: Securing Workloads
+  weight: 25
+  description: |-
+    Configuring Authorization
+    Configuring Authentication (mTLS, JWT)
+    Securing Edge Traffic with TLS
+- name: Troubleshooting
+  weight: 20
+  description: |-
+    Troubleshooting Configuration
+    Troubleshooting the Mesh Control Plane
+    Troubleshooting the Mesh Data Plane

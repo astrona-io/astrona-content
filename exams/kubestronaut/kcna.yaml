@@ -1,0 +1,40 @@
+# Kubernetes and Cloud Native Associate — public exam definition.
+# Question banks are not here and never will be: this repository is public.
+long_name: Kubernetes and Cloud Native Associate
+status: in_test
+pass_score: 75
+max_breaks: 3
+description: |-
+  The Kubernetes and Cloud Native Associate (KCNA) certification from the Cloud Native Computing Foundation (CNCF) is the fastest way to prove your understanding of Kubernetes fundamentals and cloud native concepts. It’s designed for engineers who want to break into Kubernetes with confidence and build a strong foundation for future CNCF certifications.
+
+  KCNA is a multiple-choice, scenario-based exam that tests how well you understand Kubernetes architecture, containers, networking, storage, security basics, observability, and the cloud native ecosystem. While it’s considered an entry-level Kubernetes certification, many candidates fail because the questions are precisely worded and intentionally tricky, often with several answers that look correct.
+
+  This is why realistic KCNA simulator exams are critical. Practicing with simulator exams helps you learn CNCF question patterns, avoid common traps, improve your speed, and walk into the real exam confident and prepared. You don’t just memorize concepts — you learn how to pass the exam.
+
+  Practice smarter. Pass faster. Start your KCNA preparation today.
+domains:
+- name: Kubernetes Fundamentals
+  weight: 44
+  description: |-
+    Kubernetes Core Concepts
+    Administration
+    Scheduling
+    Containerization
+- name: Container Orchestration
+  weight: 28
+  description: |-
+    Networking
+    Security
+    Troubleshooting
+    Storage
+- name: Cloud Native Application Delivery
+  weight: 16
+  description: |-
+    Application Delivery
+    Debugging
+- name: Cloud Native Architecture
+  weight: 12
+  description: |-
+    Observability
+    Cloud Native Ecosystem and Principles
+    Cloud Native Community and Collaboration

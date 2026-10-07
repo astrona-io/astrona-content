@@ -102,9 +102,66 @@ for group in groups:
         if slug not in seen["article"]:
             errors.append(f"knowledge-hub/related-groups.yaml: {group.get('title')!r} names unknown article {slug!r}")
 
-total = len(files) + len(kh_files)
+# -------------------------------------------------------------------- exams --
+EXAM_STATUSES = {"draft", "in_test", "published", "archived", "deprecated", "unpublished"}
+EXAMS = ROOT / "exams"
+exam_files = sorted(p for p in EXAMS.rglob("*") if p.is_file()) if EXAMS.is_dir() else []
+exam_names: dict[str, str] = {}
+for path in exam_files:
+    rel = path.relative_to(ROOT).as_posix()
+    parts = path.relative_to(EXAMS).parts
+    if len(parts) != 2 or path.suffix not in (".yaml", ".yml"):
+        errors.append(f"{rel}: not part of the exams layout (exams/<group>/<exam>.yaml)")
+        continue
+    if not SLUG.match(parts[0]):
+        errors.append(f"{rel}: group folder {parts[0]!r} must be a slug")
+    if parts[1] == "_group.yaml":
+        yaml.safe_load(path.read_text())
+        continue
+    name = path.stem
+    if not SLUG.match(name):
+        errors.append(f"{rel}: {name!r} must be a slug — it is the exam's public URL")
+    if name in exam_names:
+        errors.append(f"{rel}: exam {name!r} is also defined in {exam_names[name]}")
+    exam_names[name] = rel
+    if not (EXAMS / parts[0] / "_group.yaml").exists():
+        errors.append(f"{rel}: its group folder has no _group.yaml")
+    exam = yaml.safe_load(path.read_text()) or {}
+    if exam.get("status", "draft") not in EXAM_STATUSES:
+        errors.append(f"{rel}: status must be one of {sorted(EXAM_STATUSES)}")
+    domains = exam.get("domains") or []
+    names = [str(d.get("name", "")).strip().lower() for d in domains]
+    for dupe in sorted({n for n in names if names.count(n) > 1}):
+        errors.append(f"{rel}: duplicate domain {dupe!r}")
+    if domains and sum(int(d.get("weight", 0)) for d in domains) != 100:
+        errors.append(f"{rel}: domain weights add up to {sum(int(d.get('weight', 0)) for d in domains)}, not 100")
+
+# ------------------------------------------------------------------ courses --
+COURSES = ROOT / "courses"
+course_files = sorted(p for p in COURSES.rglob("*") if p.is_file()) if COURSES.is_dir() else []
+for path in course_files:
+    rel = path.relative_to(ROOT).as_posix()
+    if path.name in (".gitkeep", "README.md"):
+        continue
+    if path.parent != COURSES or path.suffix not in (".yaml", ".yml") or not SLUG.match(path.stem):
+        errors.append(f"{rel}: courses are courses/<slug>.yaml")
+        continue
+    course = yaml.safe_load(path.read_text()) or {}
+    if not course.get("title"):
+        errors.append(f"{rel}: needs a title")
+    if any(s.get("exam_domain") for s in course.get("sections") or []) and not course.get("exam_key"):
+        errors.append(f"{rel}: a section names an exam_domain but the course has no exam_key")
+    for section in course.get("sections") or []:
+        titles = [str(l.get("title", "")).strip().lower() for l in section.get("lessons") or []]
+        for dupe in sorted({t for t in titles if titles.count(t) > 1}):
+            errors.append(f"{rel}: section {section.get('title')!r} has two lessons titled {dupe!r}")
+
+total = len(files) + len(kh_files) + len(exam_files) + len(course_files)
 if errors:
     print("\n".join(errors))
     print(f"\n{len(errors)} problem(s) in {total} file(s)")
     sys.exit(1)
-print(f"{len(files)} program page(s) and {len(seen['article'])} knowledge hub article(s) valid")
+print(
+    f"{len(files)} program page(s), {len(seen['article'])} knowledge hub article(s) "
+    f"and {len(exam_names)} exam(s) valid"
+)

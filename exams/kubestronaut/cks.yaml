@@ -1,0 +1,61 @@
+# Certified Kubernetes Security Specialist — public exam definition.
+# Question banks are not here and never will be: this repository is public.
+long_name: Certified Kubernetes Security Specialist
+status: in_test
+pass_score: 67
+max_breaks: 3
+description: |-
+  The Certified Kubernetes Security Specialist (CKS) certification from the Cloud Native Computing Foundation (CNCF) is the most advanced Kubernetes security certification. It proves you can secure Kubernetes clusters and workloads in real-world production environments and respond effectively to security threats.
+
+  CKS is a hands-on, performance-based exam taken in a live Kubernetes cluster. You are tested on cluster hardening, system and network security, supply chain protection, runtime security, and incident response — all under intense time pressure. This is not a theory exam; every task requires precise execution using Kubernetes tools, YAML, and security best practices.
+
+  Many candidates fail CKS due to time pressure, unfamiliar workflows, and overlooked security details. Knowing security concepts alone is not enough — you must apply them quickly and correctly.
+
+  This is why CKS simulator exams are essential. Practicing in realistic exam scenarios helps you master time management, avoid common security pitfalls, and build confidence under pressure. Simulator-based preparation dramatically increases your chance of passing on the first attempt.
+
+  Train for real attacks. Defend with confidence. Pass CKS.
+domains:
+- name: Cluster Setup
+  weight: 15
+  description: |-
+    Use Network security policies to restrict cluster level access
+    Use CIS benchmark to review the security configuration of Kubernetes components (etcd, kubelet, kubedns, kubeapi)
+    Properly set up Ingress with TLS
+    Protect node metadata and endpoints
+    Verify platform binaries before deploying
+- name: Cluster Hardening
+  weight: 15
+  description: |-
+    Use Role Based Access Controls to minimize exposure
+    Exercise caution in using service accounts e.g. disable defaults, minimize permissions on newly created ones
+    Restrict access to Kubernetes API
+    Upgrade Kubernetes to avoid vulnerabilities
+- name: System Hardening
+  weight: 10
+  description: |-
+    Minimize host OS footprint (reduce attack surface)
+    Using least-privilege identity and access management
+    Minimize external access to the network
+    Appropriately use kernel hardening tools such as AppArmor, seccomp
+- name: Minimize Microservice Vulnerabilities
+  weight: 20
+  description: |-
+    Use appropriate pod security standards
+    Manage Kubernetes secrets
+    Understand and implement isolation techniques (multi-tenancy, sandboxed containers, etc.)
+    Implement Pod-to-Pod encryption (Cilium, Istio)
+- name: Supply Chain Security
+  weight: 20
+  description: |-
+    Minimize base image footprint
+    Understand your supply chain (e.g. SBOM, CI/CD, artifact repositories)
+    Secure your supply chain (permitted registries, sign and validate artifacts, etc.)
+    Perform static analysis of user workloads and container images (e.g. Kubesec, KubeLinter)
+- name: Monitoring, Logging and Runtime Security
+  weight: 20
+  description: |-
+    Perform behavioral analytics to detect malicious activities
+    Detect threats within physical infrastructure, apps, networks, data, users and workloads
+    Investigate and identify phases of attack and bad actors within the environment
+    Ensure immutability of containers at runtime
+    Use Kubernetes audit logs to monitor access

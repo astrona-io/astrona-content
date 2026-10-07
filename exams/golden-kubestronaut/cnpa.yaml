@@ -1,0 +1,62 @@
+# Certified Cloud Native Platform Engineering Associate — public exam definition.
+# Question banks are not here and never will be: this repository is public.
+long_name: Certified Cloud Native Platform Engineering Associate
+status: in_test
+pass_score: 75
+max_breaks: 3
+description: |-
+  The Certified Cloud Native Platform Engineering Associate (CNPA) certification from the Cloud Native Computing Foundation (CNCF) validates your foundational understanding of platform engineering principles in cloud native environments. It’s designed for engineers who want to build scalable internal platforms that improve developer productivity and operational consistency.
+
+  CNPA is a multiple-choice, conceptual, and scenario-based exam focused on why platform engineering exists and how it enables modern software delivery. The exam covers platform engineering fundamentals, internal developer platforms (IDPs), golden paths, self-service infrastructure, GitOps and automation, observability, security boundaries, and cloud native platform design concepts. The emphasis is on architecture, workflows, and decision-making rather than tool-specific configuration.
+
+  Although CNPA is an associate-level certification, the questions are precisely worded and architecture-driven, often including multiple answers that appear correct without a clear understanding of platform engineering intent.
+
+  Using CNPA simulator exams helps you understand CNCF question patterns, avoid common traps, and build confidence before exam day. Simulator-based practice significantly increases your chance of passing on the first attempt.
+
+  Design platforms with purpose. Enable teams at scale. Pass CNPA.
+domains:
+- name: Platform Engineering Core Fundamentals
+  weight: 36
+  description: |-
+    Declarative Resource Management
+    DevOps Practices in Platform Engineering
+    Application Environments and Infrastructure Concepts
+    Platform Architecture and Capabilities
+    Platform Engineering Goals, Objectives, and Approaches
+    Continuous Integration Fundamentals
+    Continuous Delivery and GitOps
+- name: Platform Observability, Security, and Conformance
+  weight: 20
+  description: |-
+    Observability Fundamentals: Traces, Metrics, Logs, and Events
+    Secure Service Communication
+    Policy Engines for Platform Governance
+    Kubernetes Security Essentials
+    Security in CI/CD Pipelines
+- name: Continuous Delivery & Platform Engineering
+  weight: 16
+  description: |-
+    Continuous Integration Pipelines Overview
+    Incident Response in Platform Engineering
+    CI/CD Relationship Fundamentals
+    GitOps Basics and Workflows
+    GitOps for Application Environments
+- name: Platform APIs and Provisioning Infrastructure
+  weight: 12
+  description: |-
+    Kubernetes Reconciliation Loop
+    APIs for Self-Service Platforms (CRDs)
+    Infrastructure Provisioning with Kubernetes
+    Kubernetes Operator Pattern for Integration
+- name: IDPs and Developer Experience
+  weight: 8
+  description: |-
+    Simplified Access to Platform Capabilities
+    API-Driven Service Catalogs
+    Developer Portals for Platform Adoption
+    AI/ML in Platform Automation
+- name: Measuring your Platform
+  weight: 8
+  description: |-
+    Platform Efficiency and Team Productivity
+    DORA Metrics for Platform Initiatives

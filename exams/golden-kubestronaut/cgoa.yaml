@@ -1,0 +1,57 @@
+# Certified GitOps Associate — public exam definition.
+# Question banks are not here and never will be: this repository is public.
+long_name: Certified GitOps Associate
+status: in_test
+pass_score: 75
+max_breaks: 3
+description: |-
+  The Certified GitOps Associate (CGOA) certification from the Cloud Native Computing Foundation (CNCF) validates your understanding of GitOps principles and modern continuous delivery practices for Kubernetes and cloud native platforms. It’s designed for engineers who want to prove they understand how Git becomes the single source of truth for infrastructure and application delivery.
+
+  CGOA is a multiple-choice, conceptual, and scenario-based exam focused on why GitOps works and how it improves reliability, security, and scalability. The exam covers GitOps fundamentals, declarative infrastructure, reconciliation loops, drift detection, security and compliance benefits, and common GitOps workflows using cloud native tools.
+
+  Although CGOA is an associate-level certification, the questions are precisely worded and intent-driven, often including multiple answers that appear correct without a strong grasp of GitOps concepts.
+
+  Using CGOA simulator exams helps you learn CNCF question patterns, avoid common traps, and build confidence before exam day. Simulator-based preparation significantly increases your chances of passing on the first attempt and sets a strong foundation for advanced cloud native certifications.
+
+  Think declarative. Ship with confidence. Pass CGOA.
+domains:
+- name: GitOps Terminology
+  weight: 20
+  description: |-
+    Continuous
+    Declarative Description
+    Desired State
+    State Drift
+    State Reconciliation
+    GitOps Managed Software System
+    State Store
+    Feedback Loop
+    Rollback
+- name: GitOps Principles
+  weight: 30
+  description: |-
+    Declarative
+    Versioned and Immutable
+    Pulled Automatically
+    Continuously Reconciled
+- name: Related Practices
+  weight: 16
+  description: |-
+    Configuration as Code (CaC)
+    Infrastructure as Code (IaC)
+    DevOps and DevSecOps
+    CI and CD
+- name: GitOps Patterns
+  weight: 20
+  description: |-
+    Deployment and Release Patterns
+    Progressive Delivery Patterns
+    Pull vs. Event-driven
+    Architecture Patterns (in-cluster and external reconciler, state store management, etc.)
+- name: Tooling
+  weight: 14
+  description: |-
+    Manifest Format and Packaging
+    State Store Systems (Git and alternatives)
+    Reconciliation Engines (ArgoCD, Flux, and alternatives)
+    Interoperability with Notifications, Observability, and Continuous Integration Tools

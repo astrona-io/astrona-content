@@ -1,0 +1,56 @@
+# Certified Kubernetes Application Developer — public exam definition.
+# Question banks are not here and never will be: this repository is public.
+long_name: Certified Kubernetes Application Developer
+status: in_test
+pass_score: 66
+max_breaks: 3
+description: |-
+  The Certified Kubernetes Application Developer (CKAD) certification from the Cloud Native Computing Foundation (CNCF) validates your ability to design, build, and deploy applications on Kubernetes. It’s the go-to certification for developers who work with containerized workloads and want to prove real Kubernetes application skills.
+
+  CKAD is a hands-on, performance-based exam completed in a live Kubernetes environment. You are tested on working with pods, deployments, services, configuration, observability, and application troubleshooting — all under time pressure. There are no theory questions; every task requires direct interaction with Kubernetes using the CLI and YAML manifests.
+
+  Many candidates struggle with CKAD not because the concepts are difficult, but because the exam demands speed, precision, and familiarity with Kubernetes workflows. Small mistakes can cost valuable time and points.
+
+  Using CKAD simulator exams allows you to practice exactly how the exam feels. You build muscle memory, learn to avoid common pitfalls, and improve your execution speed. Simulator-based preparation significantly increases your chances of passing on the first attempt and prepares you for real-world Kubernetes development.
+
+  Build faster. Deploy smarter. Pass CKAD with confidence.
+domains:
+- name: Application Design and Build
+  weight: 20
+  description: |-
+    Define, build and modify container images
+    Choose and use the right workload resource (Deployment, DaemonSet, CronJob, etc.)
+    Understand multi-container Pod design patterns (e.g. sidecar, init and others)
+    Utilize persistent and ephemeral volumes
+- name: Application Deployment
+  weight: 20
+  description: |-
+    Use Kubernetes primitives to implement common deployment strategies (e.g. blue/green or canary)
+    Understand Deployments and how to perform rolling updates
+    Use the Helm package manager to deploy existing packages
+    Kustomize
+- name: Application Observability and Maintenance
+  weight: 15
+  description: |-
+    Understand API deprecations
+    Implement probes and health checks
+    Use built-in CLI tools to monitor Kubernetes applications
+    Utilize container logs
+    Debugging in Kubernetes
+- name: Application Environment, Configuration and Security
+  weight: 25
+  description: |-
+    Discover and use resources that extend Kubernetes (CRD, Operators)
+    Understand authentication, authorization and admission control
+    Understand requests, limits, quotas
+    Understand ConfigMaps
+    Define resource requirements
+    Create & consume Secrets
+    Understand ServiceAccounts
+    Understand Application Security (SecurityContexts, Capabilities, etc.)
+- name: Services and Networking
+  weight: 20
+  description: |-
+    Demonstrate basic understanding of NetworkPolicies
+    Provide and troubleshoot access to applications via services
+    Use Ingress rules to expose applications

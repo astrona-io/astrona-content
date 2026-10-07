@@ -1,0 +1,58 @@
+# Prometheus Certified Associate — public exam definition.
+# Question banks are not here and never will be: this repository is public.
+long_name: Prometheus Certified Associate
+status: in_test
+pass_score: 75
+max_breaks: 3
+description: |-
+  The Prometheus Certified Associate (PCA) certification from the Cloud Native Computing Foundation (CNCF) validates your foundational knowledge of monitoring, metrics, and observability using Prometheus. It’s ideal for engineers who want to understand how modern cloud native systems are monitored and measured at scale.
+
+  PCA is a multiple-choice, conceptual, and scenario-based exam focused on how Prometheus works rather than how to operate it in production. You are tested on Prometheus architecture, metric types, labels, exporters, scraping, basic PromQL concepts, alerting fundamentals, and observability best practices. The exam also covers how Prometheus fits into the broader cloud native ecosystem.
+
+  Although PCA is an associate-level certification, many candidates underestimate the exam. Questions are precise and terminology-heavy, often including multiple answers that appear correct unless you fully understand the intent behind the question.
+
+  Using PCA simulator exams helps you learn CNCF question patterns, avoid common traps, and improve your confidence before exam day. Simulator-based practice significantly increases your chances of passing on the first attempt.
+
+  Understand metrics. Master observability. Pass PCA with confidence.
+domains:
+- name: Observability Concepts
+  weight: 18
+  description: |-
+    Metrics
+    Understand logs and events
+    Tracing and Spans
+    Push vs Pull
+    Service Discovery
+    Basics of SLOs, SLAs, and SLIs
+- name: Prometheus Fundamentals
+  weight: 20
+  description: |-
+    System Architecture
+    Configuration and Scraping
+    Understanding Prometheus Limitations
+    Data Model and Labels
+    Exposition Format
+- name: PromQL
+  weight: 28
+  description: |-
+    Selecting Data
+    Rates and Derivatives
+    Aggregating over time
+    Aggregating over dimensions
+    Binary operators
+    Histograms
+    Timestamp Metrics
+- name: Instrumentation and Exporters
+  weight: 16
+  description: |-
+    Client Libraries
+    Instrumentation
+    Exporters
+    Structuring and naming metrics
+- name: Alerting & Dashboarding
+  weight: 18
+  description: |-
+    Dashboarding basics
+    Configuring Alerting rules
+    Understand and Use Alertmanager
+    Alerting basics (when, what, and why)
