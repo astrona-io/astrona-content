@@ -1,0 +1,9 @@
+# Course track: Linux Foundation Certified System Administrator (LFCS).
+# The course itself lives in its track repository — one section per exam
+# domain, built from ATS002–ATS006. Change the content there; this file only
+# says where it is and how it is shown.
+track:
+  repository: https://github.com/astrona-io/ATP001
+  ref: main
+status: published
+exam_key: lfcs
