@@ -1,0 +1,9 @@
+# Course track: Kyverno Certified Associate (KCA).
+# The course itself lives in its track repository — one section per exam
+# domain, built from ATS007–ATS012. Change the content there; this file only
+# says where it is and how it is shown.
+track:
+  repository: https://github.com/astrona-io/ATP003
+  ref: main
+status: published
+exam_key: kca
