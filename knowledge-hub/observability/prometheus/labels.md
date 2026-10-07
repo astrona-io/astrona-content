@@ -10,8 +10,8 @@ published_at: '2026-03-14T07:50:07.710305Z'
 ## What labels are
 
 Labels are metadata attached to a metric as key-value pairs.
-They help describe where the metric came from or what it represents.<br />
-<br />
+They help describe where the metric came from or what it represents.
+
 Example:
 ```promql
 http_requests_total{job="api", instance="10.0.0.5:9090", method="GET", status="200"}
@@ -35,8 +35,7 @@ Without labels, metrics would be much less flexible and harder to analyze.
 
 ## Common label examples
 
-In Prometheus, every unique combination of metric name + labels becomes its own time series.<br />
-<br />
+In Prometheus, every unique combination of metric name + labels becomes its own time series.
 
 Example:
 ```promql
@@ -61,16 +60,14 @@ These labels help identify and organize metrics in real environments.
 
 ## Labels in queries
 
-Labels are heavily used in PromQL to select specific data.<br />
-<br />
+Labels are heavily used in PromQL to select specific data.
 
 Example:
 ```promql
 http_requests_total{job="api"}
 ```
 
-This returns only metrics where the job label is api.<br />
-<br />
+This returns only metrics where the job label is api.
 
 Example with multiple labels:
 ```promql
@@ -81,16 +78,14 @@ This returns only failed API requests with status code 500.
 
 ## Labels for grouping
 
-Labels are also used to group data during aggregation.<br />
-<br />
+Labels are also used to group data during aggregation.
 
 Example:
 ```promql
 sum by (status) (http_requests_total)
 ```
 
-This groups request totals by HTTP status code.<br />
-<br />
+This groups request totals by HTTP status code.
 
 Another example:
 ```promql
@@ -118,8 +113,7 @@ Bad examples are labels with highly unique values for every request or user.
 
 ## High cardinality warning
 
-Too many unique label values create high cardinality, which can increase memory usage and reduce Prometheus performance.<br />
-<br />
+Too many unique label values create high cardinality, which can increase memory usage and reduce Prometheus performance.
 
 Problematic examples:
 - user_id

@@ -9,11 +9,9 @@ published_at: '2026-03-14T09:13:11.570468Z'
 
 ## What Cilium is and why it matters
 
-Cilium is a Container Network Interface (CNI) for Kubernetes. A CNI is the component that gives pods IP addresses and makes pod-to-pod communication work.<br />
-<br />
+Cilium is a Container Network Interface (CNI) for Kubernetes. A CNI is the component that gives pods IP addresses and makes pod-to-pod communication work.
 
-What makes Cilium different is that it uses eBPF inside the Linux kernel. That allows it to handle networking and security in a fast and flexible way without relying as heavily on older patterns like large iptables rule sets.<br />
-<br />
+What makes Cilium different is that it uses eBPF inside the Linux kernel. That allows it to handle networking and security in a fast and flexible way without relying as heavily on older patterns like large iptables rule sets.
 
 In practice, teams often choose Cilium because they want:
 - pod networking
@@ -26,8 +24,7 @@ So Cilium is not only “the thing that connects pods.” It often becomes a bro
 
 ## How Cilium works in simple terms
 
-When a pod starts, Cilium helps attach that pod to the cluster network and gives it connectivity to other pods and services.<br />
-<br />
+When a pod starts, Cilium helps attach that pod to the cluster network and gives it connectivity to other pods and services.
 
 At a high level, Cilium does three important jobs:
 - **Networking**<br />It makes sure pods can send traffic to each other across nodes.
@@ -48,11 +45,9 @@ That combination is one reason Cilium is popular in modern platform engineering.
 
 ## Cilium and eBPF
 
-The keyword most people connect with Cilium is eBPF.<br />
-<br />
+The keyword most people connect with Cilium is eBPF.
 
-eBPF is a Linux kernel technology that lets software run small programs safely inside the kernel. Cilium uses that to make decisions about networking and security closer to where packets are actually handled.<br />
-<br />
+eBPF is a Linux kernel technology that lets software run small programs safely inside the kernel. Cilium uses that to make decisions about networking and security closer to where packets are actually handled.
 
 Why that matters:
 - fewer legacy networking layers in some scenarios
@@ -67,12 +62,11 @@ That is why people often describe Cilium as more than just a “basic Kubernetes
 
 ## Core features you will meet first
 
-**Pod networking**<br />
-Like any CNI, Cilium provides pod networking so workloads can communicate across the cluster.<br />
+**Pod networking**
+Like any CNI, Cilium provides pod networking so workloads can communicate across the cluster.
 
-**Network policies**<br />
-Cilium can enforce Kubernetes NetworkPolicy, and it also provides richer policy options through Cilium-specific resources.<br />
-<br />
+**Network policies**
+Cilium can enforce Kubernetes NetworkPolicy, and it also provides richer policy options through Cilium-specific resources.
 
 Example of a simple Kubernetes network policy:
 ```yaml
@@ -94,18 +88,15 @@ spec:
               app: frontend
 ```
 
-This example says that pods labeled `frontend` are allowed to send traffic to pods labeled `backend` in the same namespace.<br />
-<br />
+This example says that pods labeled `frontend` are allowed to send traffic to pods labeled `backend` in the same namespace.
 
-That is useful when you want to reduce unnecessary east-west traffic between applications.<br />
-<br />
+That is useful when you want to reduce unnecessary east-west traffic between applications.
 
-**Service load balancing**<br />
-Cilium can also handle Kubernetes service load balancing, helping traffic reach the correct backend pods.<br />
-<br />
+**Service load balancing**
+Cilium can also handle Kubernetes service load balancing, helping traffic reach the correct backend pods.
 
-**Observability with Hubble**<br />
-Cilium is often paired with Hubble, which gives visibility into network flows.<br />
+**Observability with Hubble**
+Cilium is often paired with Hubble, which gives visibility into network flows.
 
 Example:
 
@@ -113,16 +104,14 @@ Example:
 hubble observe
 ```
 
-This command shows live traffic flows seen by Cilium.<br />
-<br />
+This command shows live traffic flows seen by Cilium.
 
 That helps beginners and operators answer questions like:
 - Which pod is calling this service?
 - Is traffic being dropped?
 - Are policies blocking communication?
 
-**A practical example: why teams use Cilium**<br />
-<br />
+**A practical example: why teams use Cilium**
 
 Imagine a small application with three parts:
 - frontend
@@ -138,8 +127,7 @@ Cilium helps in two ways:
 - It provides the networking so all pods can technically exist and communicate
 - It enforces policy so only the approved paths are allowed
 
-This is practical because Kubernetes clusters often grow quickly. Without network controls, many workloads can talk too freely to each other, which increases risk and makes troubleshooting harder.<br />
-<br />
+This is practical because Kubernetes clusters often grow quickly. Without network controls, many workloads can talk too freely to each other, which increases risk and makes troubleshooting harder.
 
 Cilium becomes valuable when you want networking to be:
 - functional
@@ -150,28 +138,24 @@ That is especially important in clusters running many teams, many namespaces, or
 
 ## Common mistakes and anti-patterns
 
-**Treating Cilium as “just another CNI”**<br />
-Cilium can do much more than basic pod networking. If you only install it and never use its policy or observability features, you may miss a lot of its value.<br />
-<br />
+**Treating Cilium as “just another CNI”**
+Cilium can do much more than basic pod networking. If you only install it and never use its policy or observability features, you may miss a lot of its value.
 
-**Enabling policies without understanding defaults**<br />
-A common mistake is to apply network policies without realizing how traffic changes afterward. Some workloads may suddenly lose access they depended on.<br />
-<br />
+**Enabling policies without understanding defaults**
+A common mistake is to apply network policies without realizing how traffic changes afterward. Some workloads may suddenly lose access they depended on.
 
 A safer approach is:
 - understand existing traffic first
 - observe flows
 - then introduce policies gradually
 
-**Not using observability during troubleshooting**<br />
-When connectivity breaks, people often jump straight to blaming DNS, Ingress, or the application. Sometimes the real issue is a dropped network flow or a policy rule.<br />
-<br />
+**Not using observability during troubleshooting**
+When connectivity breaks, people often jump straight to blaming DNS, Ingress, or the application. Sometimes the real issue is a dropped network flow or a policy rule.
 
-Tools like Hubble can make that much easier to see.<br />
-<br />
+Tools like Hubble can make that much easier to see.
 
-**Mixing too many network concepts at once**<br />
-<br />
+**Mixing too many network concepts at once**
+
 Beginners often confuse these layers:
 - CNI
 - Ingress

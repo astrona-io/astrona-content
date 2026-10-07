@@ -9,10 +9,10 @@ published_at: '2026-03-14T07:11:44.369776Z'
 
 ## In observability eyes
 
-From an observability perspective, the SLA is the target the system must live up to.<br />
-<br />
-Observability helps you measure and prove whether you are meeting that promise.<br />
-<br />
+From an observability perspective, the SLA is the target the system must live up to.
+
+Observability helps you measure and prove whether you are meeting that promise.
+
 Example:
 - SLA: “The service must be available 99.9% each month”
 - Then observability is used to:
@@ -23,20 +23,16 @@ Example:
 
 ## Relationship to SLO and SLI
 
-This is the most important way to understand it:<br />
-<br />
+This is the most important way to understand it:
 
-**SLA**<br />
-The promise to the customer<br />
-<br />
+**SLA**
+The promise to the customer
 
-**SLO**<br />
-The internal goal used to meet the SLA<br />
-<br />
+**SLO**
+The internal goal used to meet the SLA
 
-**SLI**<br />
-The actual measurement<br />
-<br />
+**SLI**
+The actual measurement
 
 Example:
 - SLA = “99.9% monthly uptime”
@@ -50,10 +46,9 @@ So in practice:
 
 ## Why SLA matters in observability
 
-SLA gives meaning to monitoring.<br />
-<br />
-Without an SLA, you may collect lots of metrics but not know what actually matters to the customer.<br />
-<br />
+SLA gives meaning to monitoring.
+
+Without an SLA, you may collect lots of metrics but not know what actually matters to the customer.
 
 With an SLA, observability can focus on:
 - what the customer experiences
