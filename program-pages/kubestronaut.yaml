@@ -1,0 +1,69 @@
+# Kubestronaut Path
+# Synced to the content service by astrona-svc-content-sync on merge to main.
+# Field reference: schema/program-page.schema.json
+
+kind: certification_path
+title: Kubestronaut Path
+status: published
+sort_order: 0
+logo_url: /certs/kubestronaut.png
+logo_alt: Kubestronaut
+seo_title: Kubestronaut Certifications
+seo_description: >-
+  Explore the Astrona Kubestronaut certification path with KCNA, KCSA, CKA, CKAD, and CKS exam preparation
+  pages.
+intro: >-
+  Start here if you want to understand the Kubestronaut path before you choose your next exam. This page
+  helps you see what each certification is for, how the path is structured, and where to begin if you
+  are building your Kubernetes knowledge step by step.
+lead: >-
+  You will find the five core certifications, simple explanations, and direct links to each study page.
+entries_eyebrow: Certifications
+entries_heading: The five certifications in the Kubestronaut path
+highlights:
+- title: Core path
+  detail: >-
+    Five certifications covering fundamentals, administration, development, and security.
+- title: Best for
+  detail: >-
+    Platform engineers building strong Kubernetes depth from associate to specialist level.
+- title: Outcome
+  detail: A clearer path through the main certifications most teams recognize first.
+entries:
+- name: Kubernetes and Cloud Native Associate
+  short_name: KCNA
+  href: /exams/kcna
+  icon_url: /certs/kcna.png
+  detail: >-
+    Start with cloud native fundamentals, core Kubernetes concepts, and platform vocabulary.
+- name: Kubernetes and Cloud Security Associate
+  short_name: KCSA
+  href: /exams/kcsa
+  icon_url: /certs/kcsa.png
+  detail: >-
+    Focus on security posture, workload hardening, and secure cloud native operations.
+- name: Certified Kubernetes Administrator
+  short_name: CKA
+  href: /exams/cka
+  icon_url: /certs/cka.png
+  detail: >-
+    Build operational confidence across clusters, scheduling, networking, and troubleshooting.
+- name: Certified Kubernetes Application Developer
+  short_name: CKAD
+  href: /exams/ckad
+  icon_url: /certs/ckad.png
+  detail: >-
+    Train on application design, manifests, workloads, and day-to-day Kubernetes development workflows.
+- name: Certified Kubernetes Security Specialist
+  short_name: CKS
+  href: /exams/cks
+  icon_url: /certs/cks.png
+  detail: >-
+    Go deeper on runtime security, supply chain controls, and incident-focused Kubernetes defense.
+- name: Certified Kubernetes Network Engineer
+  short_name: CKNE
+  href: /exams/ckne
+  status: upcoming
+  detail: >-
+    Kubernetes networking certification in development by CNCF and Linux Foundation Education. Not yet
+    part of the official Kubestronaut requirements.

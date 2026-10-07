@@ -1,0 +1,76 @@
+# Golden Kubestronaut Path
+# Synced to the content service by astrona-svc-content-sync on merge to main.
+# Field reference: schema/program-page.schema.json
+
+kind: certification_path
+title: Golden Kubestronaut Path
+status: published
+sort_order: 1
+logo_url: /certs/golden-astronaut.png
+logo_alt: Golden Kubestronaut
+seo_title: Golden Kubestronaut Certifications
+seo_description: >-
+  Explore the Astrona Golden Kubestronaut certification collection with PCA, ICA, CCA, CAPA, CGOA, CBA,
+  OTCA, KCA, CNPA, CNPE, and LFCS.
+intro: >-
+  Start here if you want to go beyond the core Kubernetes path and explore the wider cloud native ecosystem.
+  This page helps you understand which certifications fit different interests like observability, GitOps,
+  policy, and platform engineering.
+lead: >-
+  You will find the related certifications, what they focus on, and where to continue your study journey.
+entries_eyebrow: Certifications
+entries_heading: The supporting certifications in the Golden Kubestronaut track
+highlights:
+- title: Broader track
+  detail: >-
+    A wider collection across observability, GitOps, policy, service mesh, platform engineering, and Linux.
+- title: Best for
+  detail: >-
+    Engineers expanding beyond core Kubernetes into the surrounding cloud native ecosystem.
+- title: Outcome
+  detail: A clearer map of adjacent certifications that support deeper platform expertise.
+entries:
+- name: Prometheus Certified Associate
+  short_name: PCA
+  href: /exams/pca
+  icon_url: /certs/pca.png
+- name: Istio Certified Associate
+  short_name: ICA
+  href: /exams/ica
+  icon_url: /certs/ica.png
+- name: Cilium Certified Associate
+  short_name: CCA
+  href: /exams/cca
+  icon_url: /certs/cca.png
+- name: Certified Argo Project Associate
+  short_name: CAPA
+  href: /exams/capa
+  icon_url: /certs/capa.png
+- name: Certified GitOps Associate
+  short_name: CGOA
+  href: /exams/cgoa
+  icon_url: /certs/cgoa.png
+- name: Certified Backstage Associate
+  short_name: CBA
+  href: /exams/cba
+  icon_url: /certs/cba.png
+- name: OpenTelemetry Certified Associate
+  short_name: OTCA
+  href: /exams/otca
+  icon_url: /certs/otca.png
+- name: Kyverno Certified Associate
+  short_name: KCA
+  href: /exams/kca
+  icon_url: /certs/kca.png
+- name: Certified Cloud Native Platform Engineering Associate
+  short_name: CNPA
+  href: /exams/cnpa
+  icon_url: /certs/cnpa.png
+- name: Linux Foundation Certified System Administrator
+  short_name: LFCS
+  href: /exams/lfcs
+  icon_url: /certs/lfcs.png
+- name: Certified Cloud Native Platform Engineer
+  short_name: CNPE
+  href: /exams/cnpe
+  detail: Required for Golden Kubestronaut since 1 March 2026.

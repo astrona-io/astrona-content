@@ -1,0 +1,60 @@
+# LF AI & Data Landscape on Astrona
+# Synced to the content service by astrona-svc-content-sync on merge to main.
+# Field reference: schema/program-page.schema.json
+
+kind: landscape
+title: LF AI & Data Landscape on Astrona
+status: published
+sort_order: 4
+logo_url: /lfai-data/lfaidata.png
+logo_alt: LF AI & Data logo
+seo_title: LF AI & Data Landscape
+seo_description: >-
+  Explore the LF AI & Data landscape on Astrona: open source AI, machine learning and data tools, and
+  how they fit next to cloud native platform skills.
+intro: >-
+  Start here if you want to see which open source AI and data tools exist under the Linux Foundation,
+  and how they sit on top of the platforms you already run. This page is for getting the shape of the
+  ecosystem — vector search, feature stores, pipelines, model formats, lineage — before you pick something
+  to study properly.
+lead: >-
+  AI and data projects gathered in one place, so it is easier to see what runs on your cluster and what
+  you may want to learn next.
+entries_heading: Data & AI Tools You Can Learn
+entries:
+- name: Milvus
+  icon_url: /lfai-data/milvus.png
+  status: upcoming
+  detail: >-
+    Vector database behind similarity search and retrieval-augmented generation. Planned as part of Astrona's
+    upcoming data platform coverage.
+- name: Flyte
+  icon_url: /lfai-data/flyte.png
+  status: upcoming
+  detail: >-
+    Kubernetes-native orchestrator for machine learning and data pipelines. Planned alongside the existing
+    cluster and workload material.
+- name: Feast
+  icon_url: /lfai-data/feast.png
+  status: upcoming
+  detail: >-
+    Feature store that serves the same features to training and to production inference. Planned as upcoming
+    data engineering content.
+- name: ONNX
+  icon_url: /lfai-data/onnx.png
+  status: upcoming
+  detail: >-
+    Open format for trained models, so a model can move between frameworks and runtimes. Planned as upcoming
+    model deployment content.
+- name: OpenLineage
+  icon_url: /lfai-data/openlineage.png
+  status: upcoming
+  detail: >-
+    Open standard for collecting lineage from data pipelines, so you can see where a dataset came from.
+    Planned as upcoming data governance content.
+- name: Unity Catalog
+  icon_url: /lfai-data/unity-catalog.png
+  status: upcoming
+  detail: >-
+    Open catalog for tables, files and models, so one set of permissions covers data and AI assets across
+    engines. Planned as upcoming data governance content.

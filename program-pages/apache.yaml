@@ -1,0 +1,59 @@
+# Apache Software Foundation on Astrona
+# Synced to the content service by astrona-svc-content-sync on merge to main.
+# Field reference: schema/program-page.schema.json
+
+kind: landscape
+title: Apache Software Foundation on Astrona
+status: published
+sort_order: 5
+logo_url: /apache/asf.png
+logo_alt: Apache Software Foundation logo
+seo_title: Apache Landscape
+seo_description: >-
+  Explore Apache Software Foundation projects on Astrona: the streaming, storage and pipeline tools that
+  sit underneath most open source data and AI platforms.
+intro: >-
+  Start here if you want the layer underneath the AI tooling. Most LF AI & Data projects assume something
+  is already moving, storing and scheduling your data, and in practice that something is usually an Apache
+  project. This page gathers the ones worth knowing before you go deeper into either ecosystem.
+lead: >-
+  The streaming, storage and pipeline projects that the data and AI stack is usually built on, gathered
+  in one place.
+entries_heading: Apache Tools You Can Learn
+entries:
+- name: Apache Kafka
+  icon_url: /apache/kafka.png
+  status: upcoming
+  detail: >-
+    Event streaming platform that most real-time data pipelines are built around. Planned as part of Astrona's
+    upcoming data platform coverage.
+- name: Apache Spark
+  icon_url: /apache/spark.png
+  status: upcoming
+  detail: >-
+    Distributed engine for large-scale batch and stream processing, and the training workloads that sit
+    on top of it. Planned as upcoming data engineering content.
+- name: Apache Airflow
+  icon_url: /apache/airflow.png
+  status: upcoming
+  detail: >-
+    Scheduler for data pipelines defined as code — the orchestration layer next to Flyte. Planned as upcoming
+    pipeline content.
+- name: Apache Flink
+  icon_url: /apache/flink.png
+  status: upcoming
+  detail: >-
+    Stateful stream processing for work that cannot wait for a batch window. Planned as upcoming streaming
+    content.
+- name: Apache Iceberg
+  icon_url: /apache/iceberg.png
+  status: upcoming
+  detail: >-
+    Open table format that gives object storage real tables, schema evolution and time travel. Planned
+    alongside the lakehouse material.
+- name: Apache Superset
+  icon_url: /apache/superset.png
+  status: upcoming
+  detail: >-
+    Exploration and dashboarding layer over the warehouse, so results are visible without a bespoke frontend.
+    Planned as upcoming analytics content.

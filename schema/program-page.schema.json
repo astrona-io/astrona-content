@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/astrona-io/astrona-content/schema/program-page.schema.json",
+  "title": "Program page",
+  "description": "One landscape or certification-path page on astrona.io. The file name (without .yaml) is the page's slug and URL. List order is the order on the page.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["kind", "title"],
+  "properties": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "maxLength": 120, "description": "Optional; must equal the file name when set." },
+    "kind": { "enum": ["landscape", "certification_path"] },
+    "title": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "status": { "enum": ["draft", "published"], "default": "draft", "description": "draft pages are not shown on the site." },
+    "sort_order": { "type": "integer", "minimum": 0, "default": 0, "description": "Order among pages of the same kind (menus, footer)." },
+    "logo_url": { "type": "string", "maxLength": 500 },
+    "logo_alt": { "type": "string", "maxLength": 200 },
+    "seo_title": { "type": "string", "maxLength": 200 },
+    "seo_description": { "type": "string" },
+    "intro": { "type": "string" },
+    "lead": { "type": "string" },
+    "entries_eyebrow": { "type": "string", "maxLength": 120 },
+    "entries_heading": { "type": "string", "maxLength": 200 },
+    "highlights": {
+      "type": "array",
+      "description": "Short cards above the entries. Matched across syncs by title.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title"],
+        "properties": {
+          "title": { "type": "string", "minLength": 1, "maxLength": 200 },
+          "detail": { "type": "string" }
+        }
+      }
+    },
+    "entries": {
+      "type": "array",
+      "description": "The cards: certifications on a path, projects on a landscape. Matched across syncs by key, else short_name, else name.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name"],
+        "properties": {
+          "key": { "type": "string", "maxLength": 200, "description": "Set this before renaming an entry, or the rename becomes a delete plus a create." },
+          "name": { "type": "string", "minLength": 1, "maxLength": 200 },
+          "short_name": { "type": "string", "maxLength": 40 },
+          "href": { "type": "string", "maxLength": 500, "description": "Where the card links. Omit for a card without a link." },
+          "icon_url": { "type": "string", "maxLength": 500 },
+          "status": { "enum": ["available", "upcoming"], "default": "available", "description": "upcoming renders as 'Upcoming' instead of a link." },
+          "is_active": { "type": "boolean", "default": true, "description": "false hides the card on the site." },
+          "detail": { "type": "string" }
+        }
+      }
+    }
+  }
+}

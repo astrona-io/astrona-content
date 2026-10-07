@@ -1,0 +1,44 @@
+# CNCF Landscape on Astrona
+# Synced to the content service by astrona-svc-content-sync on merge to main.
+# Field reference: schema/program-page.schema.json
+
+kind: landscape
+title: CNCF Landscape on Astrona
+status: published
+sort_order: 2
+logo_url: /cncf-landscape/cncf.png
+logo_alt: CNCF logo
+seo_title: CNCF Landscape
+seo_description: >-
+  Explore the CNCF landscape on Astrona with guides, certification context, and cloud native learning
+  paths.
+intro: >-
+  Start here if you want to learn what kinds of CNCF tools exist and why they matter. This page is for
+  understanding the ecosystem in a simpler way, so you can explore projects, categories, and ideas before
+  deciding what you want to study more deeply.
+lead: >-
+  You will find CNCF project areas gathered in one place so it is easier to discover tools, concepts,
+  and future learning topics.
+entries_heading: CNCF Tools You Can Learn
+entries:
+- name: FluxCD
+  icon_url: /cncf-landscape/fluxcd.png
+  status: upcoming
+  detail: >-
+    Planned as part of Astrona’s upcoming GitOps and continuous delivery knowledge coverage.
+- name: Perses
+  icon_url: /cncf-landscape/perses.png
+  status: upcoming
+  detail: >-
+    Planned as part of upcoming observability and dashboard-focused learning content.
+- name: Harbor
+  icon_url: /cncf-landscape/harbor.png
+  status: upcoming
+  detail: >-
+    Planned as part of Astrona’s upcoming registry, artifact management, and supply chain learning coverage.
+- name: Keycloak
+  icon_url: /cncf-landscape/keycloak.png
+  status: upcoming
+  detail: >-
+    Planned as part of Astrona’s upcoming identity, access management, and platform authentication learning
+    coverage.

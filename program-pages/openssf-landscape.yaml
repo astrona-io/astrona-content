@@ -1,0 +1,35 @@
+# OpenSSF Landscape
+# Synced to the content service by astrona-svc-content-sync on merge to main.
+# Field reference: schema/program-page.schema.json
+
+kind: landscape
+title: OpenSSF Landscape
+status: published
+sort_order: 3
+logo_url: /openssf/openssf.png
+logo_alt: OpenSSF logo
+seo_title: OpenSSF Landscape
+seo_description: >-
+  Explore upcoming OpenSSF-focused learning areas on Astrona, starting with OpenBao, Sigstore, and cloud
+  native security topics.
+intro: >-
+  Start here if you want to learn the security side of the ecosystem in a simpler way. This page helps
+  you understand what OpenSSF-related tools are for, where they fit, and what topics you may want to explore
+  further as your security knowledge grows.
+lead: >-
+  You will find OpenSSF-focused projects gathered in one place so it is easier to explore security tools,
+  ideas, and future learning topics.
+entries_heading: OpenSSF Tools You Can Learn
+entries:
+- name: OpenBao
+  icon_url: /openssf/openbao.png
+  status: upcoming
+  detail: >-
+    Planned as Astrona’s first OpenSSF-related focus area around secrets management, security operations,
+    and platform access workflows.
+- name: Sigstore
+  icon_url: /openssf/sigstore.png
+  status: upcoming
+  detail: >-
+    Planned as part of Astrona’s upcoming software signing, provenance, and supply chain security learning
+    coverage.
