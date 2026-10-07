@@ -147,6 +147,15 @@ for path in course_files:
         errors.append(f"{rel}: courses are courses/<slug>.yaml")
         continue
     course = yaml.safe_load(path.read_text()) or {}
+    track = course.get("track")
+    if track is not None:
+        # A pointer to a track repository: the course is built from it.
+        repo = str((track or {}).get("repository", "")) if isinstance(track, dict) else ""
+        if not re.fullmatch(r"(https://github\.com/|git@github\.com:)[A-Za-z0-9-]{1,39}/[A-Za-z0-9._-]{1,100}?(\.git)?/?", repo):
+            errors.append(f"{rel}: track.repository must be a GitHub repository URL")
+        if course.get("status", "draft") not in ("draft", "published", "archived"):
+            errors.append(f"{rel}: status must be draft, published or archived")
+        continue
     if not course.get("title"):
         errors.append(f"{rel}: needs a title")
     if any(s.get("exam_domain") for s in course.get("sections") or []) and not course.get("exam_key"):

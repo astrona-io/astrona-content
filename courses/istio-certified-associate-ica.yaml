@@ -1,0 +1,9 @@
+# Course track: Istio Certified Associate (ICA).
+# The course itself lives in its track repository — one section per exam
+# domain, built from ATS013–ATS016. Change the content there; this file only
+# says where it is and how it is shown.
+track:
+  repository: https://github.com/astrona-io/ATP002
+  ref: main
+status: published
+exam_key: ica
