@@ -62,6 +62,9 @@ it for completion.
   an entry without losing its history, add `key:` with the old name first.
 - A highlight is matched by its `title`.
 - The order in the file is the order on the page.
+- The admin app may add its own entries and highlights to a page from here;
+  they show as *Manual* and survive a sync. Git always wins: list a card with
+  the same key here and it takes that card over.
 
 ## Contributing
 
