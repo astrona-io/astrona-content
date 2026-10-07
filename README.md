@@ -1,10 +1,11 @@
 # astrona-content
 
-The content behind [astrona.io](https://astrona.io), kept as plain YAML so anyone
-can read it, suggest a change, and reuse it. Today that is the **program
-pages** — the ecosystem landscapes (`/cncf-landscape`, `/landscape/apache`, …)
-and the certification paths (`/kubestronaut`, `/golden-kubestronaut`). More
-kinds of content will follow in their own folders.
+The data behind [astrona.io](https://astrona.io), kept as plain YAML so anyone
+can read it, suggest a change, and reuse it. Each kind of data has its own
+top-level folder. Today there is one kind, **program pages**: the ecosystem
+landscapes (`/cncf-landscape`, `/landscape/apache`, …) and the certification
+paths (`/kubestronaut`, `/golden-kubestronaut`). More kinds will follow as
+sibling folders, each with its own schema.
 
 Git is the source of truth. When a pull request is merged to `main`, the
 content sync service applies it to the site's database; edits made directly in
@@ -13,10 +14,17 @@ the admin app show up as *drift* until they land here.
 ## Layout
 
 ```
-program-pages/<slug>.yaml          one page; the file name is its URL slug
-schema/program-page.schema.json    every field, with what it does
+<kind>/<id>.yaml                   one record of that kind; the file name is its id
+schema/<kind>.schema.json          every field of that kind, with what it does
 scripts/validate.py                the check CI runs on every pull request
 ```
+
+| Folder | Kind | Synced into |
+| --- | --- | --- |
+| `program-pages/` | landscapes and certification paths (file name = URL slug) | content service |
+
+Adding a kind: a new folder, its schema, a validator entry, and an entry in the
+content sync service's `KINDS` registry (folder → parser → owning service).
 
 ## A page
 
@@ -68,7 +76,7 @@ From the [astrona-agent-development](https://github.com/astrona-io/astrona-agent
 workspace, with this repo cloned under `repos/`:
 
 ```sh
-./bin/astrona-agent content drift      # what differs between this repo and your local database
+./bin/astrona-agent content status     # what differs between this repo and your local database
 ./bin/astrona-agent content sync       # apply it (asks nothing; --dry-run to preview)
 ./bin/astrona-agent content export     # write your local database back into these files
 ```
