@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Simulator Cleared"
+how: "Finish your first mock exam, any exam and any level."
+order: 40
+ticket: { code: SIM, theme: orange }
+rule: { kind: mock_exams, at_least: 1 }

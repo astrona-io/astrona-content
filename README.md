@@ -25,6 +25,8 @@ the admin app show up as *drift* until they land here.
 <kind>/<id>.yaml                   one record of that kind; the file name is its id
 schema/<kind>.schema.json          every field of that kind, with what it does
 scripts/validate.py                the check CI runs on every pull request
+templates/intro/*.md               the Course Introduction every course track opens with
+templates/snippets/<group>-<name>.md   shared text for <!-- astrona:<group>:<name> --> in a page
 ```
 
 | Folder | Kind | Synced into |
@@ -33,6 +35,7 @@ scripts/validate.py                the check CI runs on every pull request
 | `knowledge-hub/` | sections, topics, Markdown articles, related-article groups | knowledge-hub service |
 | `exams/` | exam groups (`<group>/_group.yaml`) and exams (`<group>/<exam>.yaml`) | assessment engine |
 | `courses/` | one file per course — see [`courses/README.md`](courses/README.md) | course engine |
+| `partners/` | whose material a course track includes — see [`partners/README.md`](partners/README.md) | no service: read into the courses that name it |
 
 Adding a kind: a new folder, its schema, a validator entry, and an entry in the
 content sync service's `KINDS` registry (folder → parser → owning service).
@@ -153,3 +156,92 @@ workspace, with this repo cloned under `repos/`:
 ./bin/astrona-agent content sync       # apply it (asks nothing; --dry-run to preview)
 ./bin/astrona-agent content export --kind knowledge-hub --write   # local database back into these files
 ```
+
+## The Course Introduction (`templates/intro/`)
+
+Every course track opens with a **Course Introduction** section built from these
+templates, so the same welcome, system requirements, support and crew pages are
+not written again in every training repository. `00-*.md` is the section's
+overview; the other files, in file-name order, are the pages of its "Course
+Introduction" module. Front matter gives a page its `title` and `key` (its URL
+part), plus the usual `description` and `estimated_duration`.
+
+The templates are [Jinja](https://jinja.palletsprojects.com/), filled per
+training from its `astrona.yaml`. Optional fields under `training:` feed them:
+
+```yaml
+training:
+  id: ATS014
+  title: "ICA: Traffic Management"
+  description: >
+    …
+  audience: Kubernetes engineers who are new to Istio.
+  outcomes:
+    - Route requests by header, URI and query parameter
+    - Shift and mirror traffic safely
+  tools:                       # beyond a container engine, kind, kubectl and astrona
+    - name: istioctl
+      why: Istio's own command-line tool
+      install: https://istio.io/latest/docs/setup/getting-started/#download
+    - helm
+  verified_with: {istio: 1.30.5, kubernetes: 1.33}
+  license: Apache-2.0          # links to the repository's LICENSE
+  crew:                        # any roles; each becomes a heading on "Meet Your Instructors"
+    core_maintainers:
+      - {name: Paris Nakita Kejser, github: parisnakitakejser}
+    reviewers:
+      - {name: …, github: …, company: …}
+  intro: false                 # leave the Course Introduction out
+  certification: {name: …, code: …, provider: …, domain: …}
+```
+
+In a template: `training.*` (the fields above, plus `repository_url`,
+`issues_url`, `contributors_url`, `license_url`; `crew` is a list of
+`{title, members}`), `certification.*`, and `sections` (each `label`, `title`,
+`pages`, `labs`). A training that writes its own `sections/intro/` keeps it and
+gets no generated one. A template that cannot be filled is left out and named in
+the sync's warnings.
+
+## Shared snippets (`templates/snippets/`)
+
+A line `<!-- astrona:<group>:<name> -->` in any course page is replaced by
+`templates/snippets/<group>-<name>.md` when the page is synced, so text that
+belongs in many pages is written once — for example
+`<!-- astrona:playground:environment-explain -->` explains what a playground is,
+`<!-- astrona:playground:renew -->` shows how `astrona run renew` gives a running
+playground its full time limit again, and `<!-- astrona:playground:destroy -->`
+— typically on a module's summary page — shows how `astrona destroy` ends the
+playground, frees the machine and logs its time before the student moves on.
+Snippets are Jinja with the same `training`, `certification` and `sections` as
+the Course Introduction; front matter is only for notes. On GitHub the marker is
+an invisible comment. An unknown snippet stays a comment and is named in the
+sync's warnings.
+
+A snippet can sit in a card with an animation beside it by wrapping its text:
+`::snippet-card{art="solar-system"}` … `::` (astrona-web's
+`components/mdc/SnippetCard.vue` lists the scenes: `solar-system`, `renew`, `destroy`).
+
+## Achievements (`achievements/`)
+
+Each file is one achievement in the student's **flight log**
+(`/account/flight-log`), shown as a mission patch — tickets are kept for the
+certification programs. The dashboard shows the three closest to being earned
+and the twenty earned last:
+`achievements/<slug>.yaml`, checked against `schema/achievement.schema.json`.
+
+```yaml
+title: "Ten Successful Missions"
+how: "Pass ten graded labs."          # shown while not yet earned
+order: 21                             # earned ones come first, then this order
+ticket: { code: L10, theme: green }   # the patch: code up to 6 letters, unique; theme: blue, gold, green, cyan, orange, violet
+rule: { kind: labs_passed, at_least: 10 }
+```
+
+Rule kinds, all worked out from data the services already keep (nothing is stored
+per student for a ticket): `sections_completed`, `courses_completed` (every lesson
+done), `labs_passed` (graded labs passed with `astrona submit`),
+`playground_hours` (counted playground time — ended with `astrona destroy`),
+`mock_exams`, `streak_days` (best streak) — each with `at_least` — and
+`program` with `program: kubestronaut | golden-kubestronaut` (every certification
+of the program held; its progress is certifications held out of the program's). The git sync mirrors the folder into the content service;
+git owns every achievement.

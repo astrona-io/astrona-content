@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Achievement",
+  "description": "An achievement in the student's flight log (achievements/<slug>.yaml), shown as a mission patch. The website works out who has earned it from data the services already keep.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "title",
+    "how",
+    "ticket",
+    "rule"
+  ],
+  "properties": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "Optional; must equal the file name."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "how": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 300,
+      "description": "What it takes to earn it — shown while not yet earned, so make it concrete (\"Pass 10 graded labs\")."
+    },
+    "order": {
+      "type": "integer",
+      "description": "Position in the flight log; earned ones come first."
+    },
+    "ticket": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "theme"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 6,
+          "description": "The letters on the patch, like an airport code."
+        },
+        "theme": {
+          "enum": [
+            "blue",
+            "gold",
+            "green",
+            "cyan",
+            "orange",
+            "violet"
+          ]
+        }
+      },
+      "description": "The patch: its code and colour."
+    },
+    "rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "lessons_completed",
+            "sections_completed",
+            "courses_completed",
+            "labs_passed",
+            "playgrounds_started",
+            "playground_hours",
+            "cockpit_hours",
+            "mock_exams",
+            "streak_days",
+            "program"
+          ],
+          "description": "lessons_completed: lessons finished. sections_completed / courses_completed: course parts or whole courses with every lesson done. labs_passed: graded labs passed with astrona submit. playgrounds_started: playgrounds launched. playground_hours: counted playground time (ended with astrona destroy). cockpit_hours: counted lab and playground time together. mock_exams: mock exams finished, optionally narrowed by level, exam and passed. streak_days: best streak. program: every certification of a program held."
+        },
+        "at_least": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "program": {
+          "enum": [
+            "kubestronaut",
+            "golden-kubestronaut"
+          ]
+        },
+        "level": {
+          "enum": [
+            "Foundation",
+            "Exam-Ready",
+            "Exam-Plus",
+            "Expert Challenge"
+          ],
+          "description": "mock_exams only: runs at this level (mixed-level runs never count)."
+        },
+        "exam": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "mock_exams only: runs of this exam, by its file name under exams/ (cka, pca, ...)."
+        },
+        "passed": {
+          "type": "boolean",
+          "description": "mock_exams only: true counts passed runs only."
+        }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "kind": {
+              "const": "program"
+            }
+          },
+          "required": [
+            "program"
+          ],
+          "not": {
+            "required": [
+              "at_least"
+            ]
+          }
+        },
+        {
+          "properties": {
+            "kind": {
+              "not": {
+                "const": "program"
+              }
+            }
+          },
+          "required": [
+            "at_least"
+          ],
+          "not": {
+            "required": [
+              "program"
+            ]
+          }
+        }
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "not": {
+                  "const": "mock_exams"
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "level"
+                  ]
+                },
+                {
+                  "required": [
+                    "exam"
+                  ]
+                },
+                {
+                  "required": [
+                    "passed"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

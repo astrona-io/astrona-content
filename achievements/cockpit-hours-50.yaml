@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Fifty Cockpit Hours"
+how: "Spend 50 hours in labs and playgrounds together. Time counts once a lab passes or a playground ends with astrona destroy."
+order: 36
+ticket: { code: CK50, theme: blue }
+rule: { kind: cockpit_hours, at_least: 50 }

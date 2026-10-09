@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "CKA Mock Passed Five Times"
+how: "Pass 5 CKA mock exams — each at or above its pass mark, at any level."
+order: 70
+ticket: { code: CKA5, theme: blue }
+rule: { kind: mock_exams, at_least: 5, exam: cka, passed: true }
