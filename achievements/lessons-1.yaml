@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "First Page Turned"
+how: "Finish your first lesson in any course."
+order: 1
+ticket: { code: RD1, theme: violet }
+rule: { kind: lessons_completed, at_least: 1 }

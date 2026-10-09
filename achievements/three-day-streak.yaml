@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Three Days Running"
+how: "Practise 3 days in a row — finishing a mock exam counts for the day."
+order: 48
+ticket: { code: 3D, theme: orange }
+rule: { kind: streak_days, at_least: 3 }

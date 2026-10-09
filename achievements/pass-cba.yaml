@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "CBA Mock Passed"
+how: "Pass a CBA mock exam — score at or above its pass mark, at any level."
+order: 76
+ticket: { code: CBA, theme: gold }
+rule: { kind: mock_exams, at_least: 1, exam: cba, passed: true }

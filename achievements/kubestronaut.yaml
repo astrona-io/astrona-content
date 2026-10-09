@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Kubestronaut"
+how: "Hold all five Kubestronaut certifications: KCNA, KCSA, CKA, CKAD and CKS."
+order: 60
+ticket: { code: KUB, theme: blue }
+rule: { kind: program, program: kubestronaut }
