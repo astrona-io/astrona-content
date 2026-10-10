@@ -242,7 +242,10 @@ per student for a ticket): `lessons_completed` (different lessons finished, each
 `updated_lessons_read` (a lesson finished again after its text changed — once per
 update, to bring readers back to what changed), `sections_completed`, `courses_completed` (every lesson
 done), `labs_passed` (graded labs passed with `astrona submit`),
-`playground_hours` (counted playground time — ended with `astrona destroy`),
+`playgrounds_started` (playgrounds launched; renewing one with `astrona run renew` is not
+a new launch), `playground_renews` (renews used), `playground_hours` (counted
+playground time — ended with `astrona destroy` or renewed), `lab_hours` (counted lab
+time — a lab counts once it passes), `cockpit_hours` (labs and playgrounds together),
 `mock_exams`, `streak_days` (best streak) — each with `at_least` — and
 `program` with `program: kubestronaut | golden-kubestronaut` (every certification
 of the program held; its progress is certifications held out of the program's). The git sync mirrors the folder into the content service;

@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Station Keeper"
+how: "Renew running playgrounds 100 times with astrona run renew."
+order: 29
+ticket: { code: RN100, theme: cyan }
+rule: { kind: playground_renews, at_least: 100 }
