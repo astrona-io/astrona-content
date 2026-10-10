@@ -238,7 +238,9 @@ rule: { kind: labs_passed, at_least: 10 }
 ```
 
 Rule kinds, all worked out from data the services already keep (nothing is stored
-per student for a ticket): `sections_completed`, `courses_completed` (every lesson
+per student for a ticket): `lessons_completed` (different lessons finished, each once),
+`updated_lessons_read` (a lesson finished again after its text changed — once per
+update, to bring readers back to what changed), `sections_completed`, `courses_completed` (every lesson
 done), `labs_passed` (graded labs passed with `astrona submit`),
 `playground_hours` (counted playground time — ended with `astrona destroy`),
 `mock_exams`, `streak_days` (best streak) — each with `at_least` — and

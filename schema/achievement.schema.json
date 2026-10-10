@@ -68,6 +68,7 @@
         "kind": {
           "enum": [
             "lessons_completed",
+            "updated_lessons_read",
             "sections_completed",
             "courses_completed",
             "labs_passed",
@@ -78,7 +79,7 @@
             "streak_days",
             "program"
           ],
-          "description": "lessons_completed: lessons finished. sections_completed / courses_completed: course parts or whole courses with every lesson done. labs_passed: graded labs passed with astrona submit. playgrounds_started: playgrounds launched. playground_hours: counted playground time (ended with astrona destroy). cockpit_hours: counted lab and playground time together. mock_exams: mock exams finished, optionally narrowed by level, exam and passed. streak_days: best streak. program: every certification of a program held."
+          "description": "lessons_completed: different lessons finished, each once. updated_lessons_read: lessons finished again after their text changed, once per update. sections_completed / courses_completed: course parts or whole courses with every lesson done. labs_passed: graded labs passed with astrona submit. playgrounds_started: playgrounds launched. playground_hours: counted playground time (ended with astrona destroy). cockpit_hours: counted lab and playground time together. mock_exams: mock exams finished, optionally narrowed by level, exam and passed. streak_days: best streak. program: every certification of a program held."
         },
         "at_least": {
           "type": "integer",
