@@ -1,0 +1,48 @@
+# Certified Cloud Native Platform Engineer — public exam definition.
+# Question banks are not here and never will be: this repository is public.
+long_name: Certified Cloud Native Platform Engineer
+status: draft
+pass_score: 75
+max_breaks: 3
+description: |-
+  The Certified Cloud Native Platform Engineer (CNPE) certification from the Cloud Native Computing Foundation (CNCF) validates that you can build and run an internal platform on Kubernetes. It is designed for engineers who already work with Kubernetes every day and now design the platform other teams deploy to.
+
+  CNPE is a hands-on, performance-based exam: 15 to 20 tasks on live clusters in two hours, solved from a remote Linux desktop with the terminal and web-based interfaces. The tasks cover platform architecture and multi-tenancy, GitOps and continuous delivery, platform APIs and self-service, observability and operations, and security and policy enforcement. They draw on a wide set of cloud native tools — Argo, Flux, Tekton, Crossplane, Prometheus, OpenTelemetry, Kyverno, Gatekeeper, Istio and more — with only each tool's quick reference available during the exam.
+
+  Breadth is what makes CNPE hard. Each tool is tested at a practical level, but there are many of them, and the clock is short.
+
+  Practising every tool on a real cluster before exam day builds the speed you need. Build platforms with confidence. Pass CNPE.
+domains:
+- name: Platform Architecture and Infrastructure
+  weight: 15
+  description: |-
+    Applying Platform Architecture Best Practices for Networking, Storage, and Compute
+    Using Cost Management Solutions for Right-Sizing and Scaling
+    Optimizing Multi-Tenancy Resource Usage
+- name: GitOps and Continuous Delivery
+  weight: 25
+  description: |-
+    Implementing GitOps Workflows for Application and Infrastructure Deployment
+    Building and Configuring CI/CD Pipelines Integrated with Kubernetes
+    Deploying Applications Using Progressive Delivery Strategies (e.g., Blue/Green or Canary)
+- name: Platform APIs and Self-Service Capabilities
+  weight: 25
+  description: |-
+    Designing and Creating Custom Resource Definitions (CRDs) for Platform Services
+    Implementing Workflows for Self-Service Provisioning Using Platform APIs
+    Using Kubernetes Operators for Platform Automation and Integration
+    Using Automation Frameworks for Self-Service Provisioning
+- name: Observability and Operations
+  weight: 20
+  description: |-
+    Implementing Monitoring, Alerting, Logging, and Tracing Solutions
+    Measuring and Improving Platform Efficiency Using Deployment Metrics and Performance Indicators
+    Diagnosing and Remediating Platform Issue and Incident Scenarios
+- name: Security and Policy Enforcement
+  weight: 15
+  description: |-
+    Configuring Secure Service-to-Service Communication
+    Applying RBAC and Security Controls Across Platform Resources
+    Generating Audit Trails and Enforcing Policy Compliance (SBOM, Compliance Reports, etc.)
+    Using Policy Engines and Admission Controllers for Governance
+    Integrating Security Scanning and Compliance Checks into Deployment Pipelines
