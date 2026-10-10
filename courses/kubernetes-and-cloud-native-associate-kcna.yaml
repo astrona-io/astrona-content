@@ -1,0 +1,6 @@
+# Preparation only. Merge after the path and every stage repository are available.
+track:
+  repository: https://github.com/astrona-io/ATP008
+  ref: main
+status: draft
+exam_key: kcna
