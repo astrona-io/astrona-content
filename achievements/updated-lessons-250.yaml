@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Changelog Chaser"
+how: "Read 250 lessons again after they were updated — each update counts once."
+order: 7
+ticket: { code: UP250, theme: cyan }
+rule: { kind: updated_lessons_read, at_least: 250 }

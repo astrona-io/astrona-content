@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Course Correction"
+how: "Read a lesson again after it was updated since you last read it."
+order: 7
+ticket: { code: UP1, theme: cyan }
+rule: { kind: updated_lessons_read, at_least: 1 }
