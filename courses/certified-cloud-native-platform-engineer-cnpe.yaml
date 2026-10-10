@@ -5,5 +5,5 @@
 track:
   repository: https://github.com/astrona-io/ATP004
   ref: main
-status: draft
+status: published
 exam_key: cnpe

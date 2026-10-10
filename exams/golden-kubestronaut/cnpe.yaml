@@ -1,7 +1,7 @@
 # Certified Cloud Native Platform Engineer — public exam definition.
 # Question banks are not here and never will be: this repository is public.
 long_name: Certified Cloud Native Platform Engineer
-status: draft
+status: in_test
 pass_score: 75
 max_breaks: 3
 description: |-
