@@ -1,16 +1,8 @@
 ---
-# Used as <!-- astrona:playground:destroy --> in any course page — typically on a
-# module's summary page, to clean up before moving on.
-description: How to end a playground with astrona destroy, and what it does.
+description: End the current playground and clean up its temporary resources.
 ---
 ::snippet-card{art="destroy"}
-**Done here? Bring the playground home before you move on:**
+**End this playground before starting another module.** Use `astrona list` to identify its environment name, then pass that name to `astrona destroy`. This removes its cluster and temporary workload data. Keep any observations you need before removal.
 
-```bash
-astrona destroy
-```
-
-It removes the playground's cluster from your machine, frees the memory and disk it used, and stops its clock — **that is what logs your time** on your account, so this session counts towards your hands-on hours.
-
-Skip it and the playground keeps running until its time limit, then it is removed anyway — but that session's time is not counted. Starting the next module's playground? Destroy this one first, so the two don't compete for your machine.
+Stop host-side port forwards and remove temporary practice files you created. Host image caches and saved files have separate lifetimes and can remain after cluster removal. A separately launched graded lab also has its own environment and needs its own cleanup.
 ::

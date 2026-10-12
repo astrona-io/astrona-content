@@ -1,11 +1,8 @@
 ---
-# Used as <!-- astrona:playground:renew --> in any course page.
-description: How to give a running playground its full time limit again.
+description: Renew the current timed playground before hands-on work.
 ---
 ::snippet-card{art="renew"}
-**Need more time in orbit?** Refuel before the timer runs out — your time so far is saved and the clock starts over:
+**Renew before continuing.** A timed playground can expire while you work. Renewal keeps its resources and resets its time allowance. Use this module's catalog name or running environment name to renew only this playground.
 
-```bash
-astrona run renew
-```
+The practice reading supplies its scoped renewal command. `astrona run renew` without a name renews every running playground, so include the name when you have several environments. Skip renewal for an untimed local author run.
 ::
