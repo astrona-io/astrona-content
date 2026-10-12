@@ -1,0 +1,58 @@
+# Provisional CKNE curriculum; not a current Golden Kubestronaut requirement.
+# No official pass score, duration, or launch date is asserted here.
+# Omitted assessment settings use platform defaults while this exam stays draft.
+long_name: Certified Kubernetes Network Engineer
+status: draft
+description: 'CKNE is under development. This draft records the provisional domains
+  published by The Linux Foundation, checked on 2026-10-10. Exam launch date, assessment
+  settings and final curriculum must be confirmed before publication. Source: https://training.linuxfoundation.org/kubernetes-network-engineer-program/'
+domains:
+- name: Core Infrastructure and CNI
+  weight: 15
+  description: 'Installing and Configuring CNI Plugins
+
+    Managing IPAM and Pod CIDR Allocation
+
+    Using Linux Tools (iptables, ip, tcpdump) for Packet-level Issues
+
+    Troubleshooting Pod Connectivity (DNS, pod-to-pod)
+
+    Configuring Multi-interface Pods'
+- name: Service Networking and DNS
+  weight: 25
+  description: 'Configuring L4 Services
+
+    Understanding kube-proxy and CNI Alternatives
+
+    Customizing coreDNS for Services
+
+    Troubleshooting Service Network Traffic
+
+    Configuring Pod Endpoint Availability
+
+    Managing Traffic with the Gateway API (Gateway, HTTPRoutes)'
+- name: Advanced Traffic Management
+  weight: 20
+  description: 'Optimizing LLM Traffic
+
+    Implementing Routing to Expose Networks
+
+    Configuring Egress Gateways for Cluster Exit Traffic
+
+    Implementing Cross Cluster Service Discovery and Load Balancing'
+- name: Network Security and Policy
+  weight: 25
+  description: 'Securing Traffic with Network Policies
+
+    Implementing Node and Pod Level Encryption
+
+    Managing TLS Certificates for Gateway API
+
+    Implementing Pod-level Authentication and Authorization'
+- name: Observability
+  weight: 15
+  description: 'Analyzing Network Health Using Metrics
+
+    Troubleshooting End to End Network Performance with Tracing
+
+    Auditing Traffic with Logs'
