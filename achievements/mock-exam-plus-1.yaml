@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Exam-Plus: First Flight"
+how: "Finish a mock exam at the Exam-Plus level, any exam. Mixed-level runs do not count here."
+order: 66
+ticket: { code: PLS1, theme: orange }
+rule: { kind: mock_exams, at_least: 1, level: "Exam-Plus" }

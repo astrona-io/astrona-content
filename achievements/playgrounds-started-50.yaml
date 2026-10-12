@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Launch Pad Regular"
+how: "Start 50 playgrounds with astrona run."
+order: 29
+ticket: { code: PGS50, theme: cyan }
+rule: { kind: playgrounds_started, at_least: 50 }

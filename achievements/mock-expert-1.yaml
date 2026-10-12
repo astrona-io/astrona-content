@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Expert Challenge: First Flight"
+how: "Finish a mock exam at the Expert Challenge level, any exam. Mixed-level runs do not count here."
+order: 68
+ticket: { code: XPR1, theme: gold }
+rule: { kind: mock_exams, at_least: 1, level: "Expert Challenge" }

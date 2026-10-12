@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Century Reader"
+how: "Finish 100 lessons across any courses."
+order: 4
+ticket: { code: RD100, theme: violet }
+rule: { kind: lessons_completed, at_least: 100 }

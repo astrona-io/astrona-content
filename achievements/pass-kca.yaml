@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "KCA Mock Passed"
+how: "Pass a KCA mock exam — score at or above its pass mark, at any level."
+order: 81
+ticket: { code: KCA, theme: gold }
+rule: { kind: mock_exams, at_least: 1, exam: kca, passed: true }

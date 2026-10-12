@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Seven Days in Orbit"
+how: "Practise 7 days in a row — finishing a mock exam counts for the day."
+order: 50
+ticket: { code: 7D, theme: orange }
+rule: { kind: streak_days, at_least: 7 }

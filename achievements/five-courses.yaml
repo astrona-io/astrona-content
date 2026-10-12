@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Five Courses Complete"
+how: "Finish every lesson of 5 whole courses."
+order: 16
+ticket: { code: CRS5, theme: violet }
+rule: { kind: courses_completed, at_least: 5 }

@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Exam-Plus: Ten Flights"
+how: "Finish 10 mock exams at the Exam-Plus level, any exam. Mixed-level runs do not count here."
+order: 67
+ticket: { code: PLS10, theme: orange }
+rule: { kind: mock_exams, at_least: 10, level: "Exam-Plus" }

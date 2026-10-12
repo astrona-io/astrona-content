@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Golden Kubestronaut"
+how: "Hold all 11 Golden Kubestronaut certifications, with Kubestronaut held too."
+order: 61
+ticket: { code: GLD, theme: gold }
+rule: { kind: program, program: golden-kubestronaut }

@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Hundred Successful Missions"
+how: "Pass 100 graded labs with astrona submit."
+order: 24
+ticket: { code: L100, theme: green }
+rule: { kind: labs_passed, at_least: 100 }

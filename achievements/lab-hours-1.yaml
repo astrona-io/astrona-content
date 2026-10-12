@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "First Lab Hour"
+how: "Spend 1 hour in graded labs. A lab's time counts once it passes with astrona submit."
+order: 22
+ticket: { code: LH1, theme: green }
+rule: { kind: lab_hours, at_least: 1 }

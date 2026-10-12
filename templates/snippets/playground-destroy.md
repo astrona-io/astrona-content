@@ -1,6 +1,8 @@
-Finish by removing this module's playground with `astrona destroy`, followed by
-its environment name from `astrona list`. Stop any local port-forward process
-started for the exercise. Destruction removes the temporary cluster and its
-local node storage; files you created in your terminal directory and images in
-the host container engine have separate lifetimes. Start a fresh module
-playground when you continue to the next practical sequence.
+---
+description: End the current playground and clean up its temporary resources.
+---
+::snippet-card{art="destroy"}
+**End this playground before starting another module.** Use `astrona list` to identify its environment name, then pass that name to `astrona destroy`. This removes its cluster and temporary workload data. Keep any observations you need before removal.
+
+Stop host-side port forwards and remove temporary practice files you created. Host image caches and saved files have separate lifetimes and can remain after cluster removal. A separately launched graded lab also has its own environment and needs its own cleanup.
+::

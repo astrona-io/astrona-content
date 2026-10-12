@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "CKAD Mock Passed"
+how: "Pass a CKAD mock exam — score at or above its pass mark, at any level."
+order: 71
+ticket: { code: CKAD, theme: blue }
+rule: { kind: mock_exams, at_least: 1, exam: ckad, passed: true }

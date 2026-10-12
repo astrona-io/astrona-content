@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Simulator Veteran"
+how: "Finish 250 mock exams, any exam and any level."
+order: 44
+ticket: { code: S250, theme: orange }
+rule: { kind: mock_exams, at_least: 250 }

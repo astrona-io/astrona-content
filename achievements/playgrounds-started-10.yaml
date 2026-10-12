@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Ten Playground Launches"
+how: "Start 10 playgrounds with astrona run."
+order: 27
+ticket: { code: PGS10, theme: cyan }
+rule: { kind: playgrounds_started, at_least: 10 }

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Partner",
+  "description": "Whose material a course track includes (partners/<slug>.yaml). Not synced on its own: the content sync reads it into the courses that name it in partner_content, and the website shows it there and on /partners.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name", "url"],
+  "properties": {
+    "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+    "url": { "type": "string", "pattern": "^https://", "maxLength": 499, "description": "The partner's site." },
+    "logo_url": { "type": "string", "pattern": "^https://", "maxLength": 499, "description": "Optional logo, shown small next to the name." },
+    "summary": { "type": "string", "maxLength": 500, "description": "One or two sentences on what they offer, shown on /partners." }
+  }
+}

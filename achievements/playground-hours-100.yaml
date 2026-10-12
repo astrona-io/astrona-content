@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Hundred Playground Hours"
+how: "Spend 100 hours in playgrounds. Time counts once a playground ends with astrona destroy or a renew."
+order: 31
+ticket: { code: PG100, theme: cyan }
+rule: { kind: playground_hours, at_least: 100 }

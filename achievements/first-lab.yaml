@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "First Successful Mission"
+how: "Pass your first graded lab with astrona submit."
+order: 20
+ticket: { code: LAB, theme: green }
+rule: { kind: labs_passed, at_least: 1 }

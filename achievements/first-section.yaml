@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "First Section Cleared"
+how: "Finish every lesson in one course section."
+order: 10
+ticket: { code: SEC, theme: violet }
+rule: { kind: sections_completed, at_least: 1 }
