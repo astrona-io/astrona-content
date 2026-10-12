@@ -19,6 +19,33 @@ stage into a section and its readings, playgrounds and labs into lessons.
 Pointing at a repository here is the review step that decides it may be shown
 on astrona.io.
 
+### Maturity: draft, alpha, beta
+
+Learners may start on content that is still being written — as long as they
+can always see it. `maturity:` says how finished something is:
+
+| Value | On astrona.io |
+| --- | --- |
+| `draft` | Reachable by its link, but left out of the course list, search and the sitemap (`noindex`). A loud *Draft* banner. |
+| `alpha` | Listed, with an *Alpha* badge and a banner: early, gaps, may change a lot. |
+| `beta` | Listed, with a *Beta* badge and a banner: complete, still being polished. |
+| `published` | The default. No badge. |
+
+Set it where it applies; the site shows the least finished level along the way
+and says whether the course, the section, the module or the page is the one in
+progress. A whole course gets a banner on every one of its pages.
+
+| Where | Field |
+| --- | --- |
+| The course | `maturity:` in this file (or `metadata.maturity` in the track's `path.yaml`) |
+| A section (track stage) | `maturity:` on the stage in `path.yaml` |
+| A whole training repository | `training.maturity` in its `astrona.yaml` |
+| A module or section of a training | `maturity:` on that entry in `astrona.yaml` |
+| A page | `maturity:` in the page's front matter |
+
+`maturity: draft` is not the same as a page's `draft: true` (or `status: draft`
+on a course): those keep it off the site altogether.
+
 ### Partner material
 
 A stage may point at a partner's repository. Learning from it is free; running
