@@ -2,7 +2,7 @@
 # Question banks are not here and never will be: this repository is public.
 long_name: Istio Certified Associate
 status: in_test
-pass_score: 75
+pass_score: 68
 max_breaks: 3
 description: |-
   The Istio Certified Associate (ICA) certification validates your understanding of service mesh concepts and Istio fundamentals in modern cloud native environments. It’s designed for engineers who want to prove they understand how Istio improves traffic management, security, and observability for Kubernetes-based applications.
