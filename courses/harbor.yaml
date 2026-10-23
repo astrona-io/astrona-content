@@ -1,0 +1,10 @@
+# Course track: Harbor.
+# The course itself lives in its track repository — one section per domain,
+# built from ATS100–ATS105. There is no official Harbor certification exam, so the
+# track has no exam_key. Change the content there; this file only says where
+# it is and how it is shown.
+track:
+  repository: https://github.com/astrona-io/ATP020
+  ref: main
+status: published
+maturity: draft
