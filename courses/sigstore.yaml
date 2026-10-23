@@ -1,0 +1,10 @@
+# Course track: Sigstore.
+# The course itself lives in its track repository — one section per domain,
+# built from ATS118–ATS123. There is no official Sigstore certification exam, so the
+# track has no exam_key. Change the content there; this file only says where
+# it is and how it is shown.
+track:
+  repository: https://github.com/astrona-io/ATP023
+  ref: main
+status: published
+maturity: draft
