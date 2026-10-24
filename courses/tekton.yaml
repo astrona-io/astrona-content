@@ -1,0 +1,10 @@
+# Course track: Tekton.
+# The course itself lives in its track repository — one section per domain,
+# built from ATS124–ATS129. There is no official Tekton certification exam, so the
+# track has no exam_key. Change the content there; this file only says where
+# it is and how it is shown.
+track:
+  repository: https://github.com/astrona-io/ATP024
+  ref: main
+status: published
+maturity: draft
