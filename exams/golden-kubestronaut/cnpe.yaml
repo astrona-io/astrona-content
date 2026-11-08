@@ -2,7 +2,7 @@
 # Question banks are not here and never will be: this repository is public.
 long_name: Certified Cloud Native Platform Engineer
 status: in_test
-pass_score: 75
+pass_score: 64
 max_breaks: 3
 description: |-
   The Certified Cloud Native Platform Engineer (CNPE) certification from the Cloud Native Computing Foundation (CNCF) validates that you can build and run an internal platform on Kubernetes. It is designed for engineers who already work with Kubernetes every day and now design the platform other teams deploy to.
