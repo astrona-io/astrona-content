@@ -138,6 +138,34 @@ renaming a domain replaces it — and the sync refuses to remove a domain that
 questions still use. An exam removed from here that has attempts or questions
 is archived, not deleted.
 
+### Full lab exams (`lab_exam`)
+
+An exam file may add a `lab_exam` block: the exam then offers a full lab exam,
+a timed set of labs drawn by domain weight from the training repositories
+(`astrona-io/ATS*`) and run on the student's machine.
+
+```yaml
+lab_exam:
+  tasks: { min: 15, max: 20 }      # an attempt draws this many labs (1–30)
+  time_limit_minutes: 120          # 30–300
+  break_minutes: 15                # the longest one break may last (1–30)
+  clusters:
+    count: 4                       # kind clusters built before the clock starts (1–6)
+    kind:                          # the profile each is built from, as a lab's runtime.kind
+      nodes: { controlPlanes: 1, workers: 0 }
+      addons: { cni: calico }
+  # pass_score and max_breaks default to the exam's own
+```
+
+A lab joins the pool when its training names this exam in
+`training.certification`, its entry in `astrona.yaml` sets
+`examScope: namespace` or `examScope: cluster`, it is not a capstone, and its
+kind config fits the profile (same node counts and CNI, addons a subset).
+After each sync the content sync checks that every domain has enough eligible
+labs for its share at `tasks.max`; until it does, the exam is sent as
+unavailable and the sync reports which domain is short.
+`schema/lab-exam.schema.json` is the block's shape.
+
 ## Contributing
 
 1. Edit or add a file under `program-pages/` or `knowledge-hub/` — or use
