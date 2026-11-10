@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "CKS Full Lab Exam at 90%"
+how: "Score 90% or more on the CKS full lab exam."
+order: 86
+ticket: { code: CKS90, theme: blue }
+rule: { kind: lab_exams, at_least: 1, exam: cks, min_score: 90 }

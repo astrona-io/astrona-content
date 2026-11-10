@@ -78,10 +78,11 @@
             "lab_hours",
             "cockpit_hours",
             "mock_exams",
+            "lab_exams",
             "streak_days",
             "program"
           ],
-          "description": "lessons_completed: different lessons finished, each once. updated_lessons_read: lessons finished again after their text changed, once per update. sections_completed / courses_completed: course parts or whole courses with every lesson done. labs_passed: graded labs passed with astrona submit. playgrounds_started: playgrounds launched (a renew is not a launch). playground_renews: astrona run renew used. lab_hours: counted lab time (a lab counts once it passes). playground_hours: counted playground time (ended with astrona destroy). cockpit_hours: counted lab and playground time together. mock_exams: mock exams finished, optionally narrowed by level, exam and passed. streak_days: best streak. program: every certification of a program held."
+          "description": "lessons_completed: different lessons finished, each once. updated_lessons_read: lessons finished again after their text changed, once per update. sections_completed / courses_completed: course parts or whole courses with every lesson done. labs_passed: graded labs passed with astrona submit. playgrounds_started: playgrounds launched (a renew is not a launch). playground_renews: astrona run renew used. lab_hours: counted lab time (a lab counts once it passes). playground_hours: counted playground time (ended with astrona destroy). cockpit_hours: counted lab and playground time together. mock_exams: mock exams finished, optionally narrowed by level, exam and passed. lab_exams: full lab exams graded, optionally narrowed by exam, passed and min_score. streak_days: best streak. program: every certification of a program held."
         },
         "at_least": {
           "type": "integer",
@@ -105,11 +106,17 @@
         "exam": {
           "type": "string",
           "pattern": "^[a-z0-9-]+$",
-          "description": "mock_exams only: runs of this exam, by its file name under exams/ (cka, pca, ...)."
+          "description": "mock_exams and lab_exams: attempts of this exam, by its file name under exams/ (cka, pca, ...). For lab_exams the exam needs a lab_exam block."
         },
         "passed": {
           "type": "boolean",
-          "description": "mock_exams only: true counts passed runs only."
+          "description": "mock_exams and lab_exams: true counts passed attempts only."
+        },
+        "min_score": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "description": "lab_exams only: attempts scoring at least this percent."
         }
       },
       "oneOf": [
@@ -159,12 +166,28 @@
           },
           "then": {
             "not": {
-              "anyOf": [
-                {
-                  "required": [
-                    "level"
+              "required": [
+                "level"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "not": {
+                  "enum": [
+                    "mock_exams",
+                    "lab_exams"
                   ]
-                },
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "anyOf": [
                 {
                   "required": [
                     "exam"
@@ -175,6 +198,24 @@
                     "passed"
                   ]
                 }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "not": {
+                  "const": "lab_exams"
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "min_score"
               ]
             }
           }

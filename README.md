@@ -282,7 +282,16 @@ done), `labs_passed` (graded labs passed with `astrona submit`),
 a new launch), `playground_renews` (renews used), `playground_hours` (counted
 playground time — ended with `astrona destroy` or renewed), `lab_hours` (counted lab
 time — a lab counts once it passes), `cockpit_hours` (labs and playgrounds together),
-`mock_exams`, `streak_days` (best streak) — each with `at_least` — and
+`mock_exams`, `lab_exams` (graded full lab exams; `earned_at` is when the attempt
+was graded), `streak_days` (best streak) — each with `at_least` — and
 `program` with `program: kubestronaut | golden-kubestronaut` (every certification
-of the program held; its progress is certifications held out of the program's). The git sync mirrors the folder into the content service;
+of the program held; its progress is certifications held out of the program's).
+`mock_exams` narrows with `level`, `exam` and `passed`; `lab_exams` with `exam` (an
+exam with a `lab_exam` block), `passed` and `min_score` (a whole percent):
+
+```yaml
+rule: { kind: lab_exams, at_least: 1, exam: cks, min_score: 90 }   # 90% or more on the CKS full lab exam
+```
+
+The git sync mirrors the folder into the content service;
 git owns every achievement.
