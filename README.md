@@ -27,6 +27,7 @@ schema/<kind>.schema.json          every field of that kind, with what it does
 scripts/validate.py                the check CI runs on every pull request
 templates/intro/*.md               the Course Introduction every course track opens with
 templates/snippets/<group>-<name>.md   shared text for <!-- astrona:<group>:<name> --> in a page
+authoring/*.md                     guides for authors of the training repositories (not synced)
 ```
 
 | Folder | Kind | Synced into |
@@ -152,8 +153,7 @@ lab_exam:
   clusters:
     count: 4                       # kind clusters built before the clock starts (1–6)
     kind:                          # the profile each is built from, as a lab's runtime.kind
-      nodes: { controlPlanes: 1, workers: 0 }
-      addons: { cni: calico }
+      nodes: { controlPlanes: 1, workers: 1 }   # no addons: kind's default CNI, kindnet
   # pass_score and max_breaks default to the exam's own
 ```
 
@@ -163,8 +163,16 @@ A lab joins the pool when its training names this exam in
 kind config fits the profile (same node counts and CNI, addons a subset).
 After each sync the content sync checks that every domain has enough eligible
 labs for its share at `tasks.max`; until it does, the exam is sent as
-unavailable and the sync reports which domain is short.
+unavailable and the sync reports which domain is short: as an error once the
+exam's `status` is `published`, as a warning before that.
 `schema/lab-exam.schema.json` is the block's shape.
+
+A lab must be written for it first, in ATS020's format: its own namespaces,
+a context guard that reads `ASTRONA_KUBE_CONTEXT`, one
+`validation/validate-<outcome>.sh` grader per outcome with points,
+`astrona test` proving every outcome fails at the start and passes after the
+solution, and an `Allow about N minutes for the tasks.` line.
+See [`authoring/exam-ready-labs.md`](authoring/exam-ready-labs.md).
 
 ## Contributing
 

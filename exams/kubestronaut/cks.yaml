@@ -7,6 +7,8 @@ max_breaks: 3
 # A full lab exam: 15-20 labs drawn by domain weight, two hours, on four kind
 # clusters the student's machine builds before the clock starts. It stays
 # unavailable until enough CKS labs set examScope and fit the cluster profile.
+# Each cluster has one control plane and one worker on kind's default CNI,
+# kindnet (no cni addon): about 1700 MiB each, 6.6 GiB for four.
 lab_exam:
   tasks: { min: 15, max: 20 }
   time_limit_minutes: 120
@@ -14,8 +16,7 @@ lab_exam:
   clusters:
     count: 4
     kind:
-      nodes: { controlPlanes: 1, workers: 0 }
-      addons: { cni: calico }
+      nodes: { controlPlanes: 1, workers: 1 }
 description: |-
   The Certified Kubernetes Security Specialist (CKS) certification from the Cloud Native Computing Foundation (CNCF) is the most advanced Kubernetes security certification. It proves you can secure Kubernetes clusters and workloads in real-world production environments and respond effectively to security threats.
 
