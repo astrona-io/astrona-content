@@ -109,6 +109,7 @@ EXAM_STATUSES = {"draft", "in_test", "published", "archived", "deprecated", "unp
 EXAMS = ROOT / "exams"
 exam_files = sorted(p for p in EXAMS.rglob("*") if p.is_file()) if EXAMS.is_dir() else []
 exam_names: dict[str, str] = {}
+lab_exam_names: set[str] = set()  # exams with a lab_exam block
 for path in exam_files:
     rel = path.relative_to(ROOT).as_posix()
     parts = path.relative_to(EXAMS).parts
@@ -139,6 +140,7 @@ for path in exam_files:
         errors.append(f"{rel}: domain weights add up to {sum(int(d.get('weight', 0)) for d in domains)}, not 100")
     # lab_exam: the exam offers a full lab exam (schema/lab-exam.schema.json).
     if "lab_exam" in exam:
+        lab_exam_names.add(name)
         lab_exam = exam["lab_exam"]
         for err in lab_exam_schema.iter_errors(lab_exam):
             where = "/".join(str(p) for p in err.absolute_path)
@@ -245,9 +247,12 @@ for path in achievement_files:
         errors.append(f"{rel}: ticket code {code!r} is also used by {codes[code]}")
     elif code:
         codes[code] = rel
-    exam = ((item or {}).get("rule") or {}).get("exam") if isinstance(item, dict) else None
+    rule = ((item or {}).get("rule") or {}) if isinstance(item, dict) else {}
+    exam = rule.get("exam") if isinstance(rule, dict) else None
     if exam and exam not in {f.stem for f in exam_files}:
         errors.append(f"{rel}: rule.exam {exam!r} is not a file under exams/")
+    elif exam and rule.get("kind") == "lab_exams" and exam not in lab_exam_names:
+        errors.append(f"{rel}: rule.exam {exam!r} has no lab_exam block, so it has no full lab exam")
 
 total = len(files) + len(kh_files) + len(exam_files) + len(course_files) + len(achievement_files) + len(partner_files)
 if errors:
