@@ -26,17 +26,16 @@ most of what an exam needs:
 - one grader per outcome, `validation/validate-<outcome>.sh`, listed in
   `validation.scripts` with a `name` and a `description`;
 - graders print one `PASS:` or `FAIL:` line and exit 0 or 1;
-- no context guard: `kubectl` talks to whatever cluster astrona's
-  `KUBECONFIG` points at, so the same grader works on an exam cluster;
 - `testing/verify-start.sh` runs first in `testing.init` and proves that
   every outcome fails on the starting state, then the reference solution runs,
   and `astrona test` checks that every outcome passes;
 - the time is a sentence under the question title:
   `Allow 10–15 minutes for the tasks.`
 
-Two things ATS020 does not need, and this guide adds: a namespace per lab
-(ATS020 shares `starfleet` and `outpost` between labs), and node container
-names from the environment (ATS020 never execs into a node).
+Three things ATS020 does not have, and this guide adds: a namespace per lab
+(ATS020 shares `starfleet` and `outpost` between labs), node container names
+from the environment (ATS020 never execs into a node), and a context guard
+that refuses to run against any cluster but the lab's own.
 
 ATS031 (Cluster Setup) applies the convention to the CKS labs:
 `sections/section-020/module-05/labs/lab-02` is a short one to copy from.
@@ -71,18 +70,18 @@ names. A lab that writes to one of them, or to anything cluster-wide (nodes,
 static pod manifests, the kubelet, admission, CRDs, ClusterRoles), is
 `examScope: cluster` (rule 5).
 
-### 2. No context guard; node names come from the environment
+### 2. The context guard and node names come from the environment
 
-Like ATS020, scripts do not check `kubectl config current-context`. astrona
-runs every lab script with `KUBECONFIG` set to the cluster the lab is on, in
-lab mode and in the exam alike.
-
-A lab that reaches into a node container (`podman exec <node> ...`) reads the
-names from two variables astrona sets for every kind lab script and `command`
+Every script and check refuses to run unless `kubectl config current-context`
+is the lab's own context. That guard stays: CKS setups restart kubelets, edit
+static pods and write node files, and must never land on another cluster. It
+reads the expected context from the environment, so it also passes on an exam
+cluster. astrona sets three variables for every kind lab script and `command`
 check:
 
 | Variable | Lab mode value |
 | --- | --- |
+| `ASTRONA_KUBE_CONTEXT` | `kind-astro-<lab>`; the context in `KUBECONFIG` |
 | `ASTRONA_KIND_CLUSTER` | `astro-<lab>`; nodes are `$ASTRONA_KIND_CLUSTER-control-plane` and `-worker` |
 | `ASTRONA_CONTAINER_ENGINE` | `docker` or `podman` |
 
@@ -92,6 +91,11 @@ an older `astrona`:
 ```bash
 #!/usr/bin/env bash
 set -euo pipefail
+context="${ASTRONA_KUBE_CONTEXT:-kind-astro-ats-031-lab-020-05-02}"
+if [[ "$(kubectl config current-context)" != "$context" ]]; then
+  printf 'Refusing to operate on another Kubernetes context\n' >&2
+  exit 1
+fi
 cluster="${ASTRONA_KIND_CLUSTER:-astro-ats-031-lab-020-05-02}"
 engine="${ASTRONA_CONTAINER_ENGINE:-podman}"
 node_name="$cluster-control-plane"
@@ -102,8 +106,11 @@ and run `"$engine" exec "$worker_name" ...`, never `podman exec
 astro-ats-031-lab-020-05-02-worker ...`. Python checks use `NODE`, `WORKER`,
 `ENGINE` and `node_exec()` from the shared `testing/check.py`. Static pod
 names follow the node: `'kube-apiserver-' + NODE`, not
-`kube-apiserver-astro-ats-031-lab-020-05-02-control-plane`. A lab that never
-touches a node needs neither variable.
+`kube-apiserver-astro-ats-031-lab-020-05-02-control-plane`. Python helpers
+guard the same way: `CONTEXT = os.environ.get('ASTRONA_KUBE_CONTEXT') or
+'kind-astro-<lab>'`, then exit unless the current context matches. Never drop
+the guard to make a lab portable; make it read `ASTRONA_KUBE_CONTEXT`
+instead. A lab that never touches a node needs only the context variable.
 
 `question.md`, `solution.md` and the prerequisites keep the lab mode block
 (`export KUBECONFIG="$(astrona kubeconfig <lab>)"` and the two node names):
@@ -155,8 +162,9 @@ compare resource contracts and node files. There each
 
 - `testing/check.py` is the same file in every lab; copy it from ATS031 and do
   not edit it per lab. It prints `PASS: <outcome>` or `FAIL: <reason>`.
-- `testing/requirements.json` holds `cluster` and `namespace` (the lab mode
-  cluster name and the main namespace), plus `resources` and `behavior`
+- `testing/requirements.json` holds `context`, `cluster` and `namespace` (the
+  lab mode context and cluster name, and the main namespace); `check.py`
+  checks the context first, plus `resources` and `behavior`
   entries. An entry with `"outcome": "<id>"` belongs to that outcome; one
   without is a guard.
 - `testing/live.py` holds the checks that need code. Guards are plain
@@ -283,6 +291,10 @@ compared):
 - `examScope: cluster`: the lab changes something outside its namespaces
   (nodes, static pods, the kubelet, API server flags, admission, cluster-wide
   RBAC or CRDs, `kube-system`). It gets a cluster to itself in the draw.
+  A pod on the node's network with a fixed port is `cluster` too: the port
+  can clash with another lab, or with the CNI's own ports.
+- Two `cluster` labs never share a cluster, so they may use the same node
+  paths; namespace labs must not write to a node at all.
 
 When unsure, choose `cluster`. Leave `examScope` off a lab that does not fit
 the profile; the content sync reports such a lab as unable to join.
@@ -291,13 +303,22 @@ The CKS profile is one control plane and one worker on kindnet (no `cni`
 addon), see `exams/kubestronaut/cks.yaml`. A CKS lab that needs Calico or
 Cilium for NetworkPolicy does not fit it.
 
+Two more traps the ATS031 conversion found:
+
+- An image pinned by digest must not be in `preloadImages`: a preloaded image
+  has no registry digest in the pod status, so the pinned rollout never
+  finishes.
+- Pin downloaded tools to a version (`cosign v2.4.1`, not
+  `releases/latest`); a new major release can break the setup.
+
 ## Checklist
 
 For each lab:
 
 - [ ] Namespaces renamed to `<role>-<training>-<section>-<module>-<lab>` in
       every file; `grep -rnw starfleet` finds nothing left.
-- [ ] No script or check calls `kubectl config current-context`.
+- [ ] Every script and helper keeps its context guard, reading
+      `ASTRONA_KUBE_CONTEXT` with the lab mode context as fallback.
 - [ ] Scripts that exec into a node read `ASTRONA_KIND_CLUSTER` and
       `ASTRONA_CONTAINER_ENGINE` with fallbacks; nothing names
       `astro-<lab>-...` or `podman` directly.
@@ -308,7 +329,7 @@ For each lab:
       is missing.
 - [ ] ATS031-style labs: `testing/check.py`, `testing/verify-start.sh`,
       `testing/wait-solved.sh` and `validation/*.sh` are byte-identical to
-      ATS031's; `requirements.json` has `cluster` and `namespace`.
+      ATS031's; `requirements.json` has `context`, `cluster` and `namespace`.
 - [ ] `testing.init` runs `verify-start`, the reference solution, then
       `wait-solved`.
 - [ ] `question.md` has `Allow about N minutes for the tasks.` under the
