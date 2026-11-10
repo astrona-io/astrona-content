@@ -4,6 +4,18 @@ long_name: Certified Kubernetes Security Specialist
 status: in_test
 pass_score: 67
 max_breaks: 3
+# A full lab exam: 15-20 labs drawn by domain weight, two hours, on four kind
+# clusters the student's machine builds before the clock starts. It stays
+# unavailable until enough CKS labs set examScope and fit the cluster profile.
+lab_exam:
+  tasks: { min: 15, max: 20 }
+  time_limit_minutes: 120
+  break_minutes: 15
+  clusters:
+    count: 4
+    kind:
+      nodes: { controlPlanes: 1, workers: 0 }
+      addons: { cni: calico }
 description: |-
   The Certified Kubernetes Security Specialist (CKS) certification from the Cloud Native Computing Foundation (CNCF) is the most advanced Kubernetes security certification. It proves you can secure Kubernetes clusters and workloads in real-world production environments and respond effectively to security threats.
 

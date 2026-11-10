@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Full lab exam",
+  "description": "The optional lab_exam block of an exam file (exams/<group>/<exam>.yaml): the exam offers a full lab exam, a timed set of labs drawn by domain weight and run on `clusters.count` kind clusters built from one profile. The content sync checks that enough eligible labs exist and sends the block to astrona-svc-labs as a lab exam definition.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["tasks", "time_limit_minutes", "break_minutes", "clusters"],
+  "properties": {
+    "tasks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["min", "max"],
+      "description": "How many labs an attempt draws: a number from min to max.",
+      "properties": {
+        "min": { "type": "integer", "minimum": 1, "maximum": 30 },
+        "max": { "type": "integer", "minimum": 1, "maximum": 30 }
+      }
+    },
+    "time_limit_minutes": { "type": "integer", "minimum": 30, "maximum": 300 },
+    "break_minutes": { "type": "integer", "minimum": 1, "maximum": 30, "description": "The longest one break may last." },
+    "pass_score": { "type": "integer", "minimum": 1, "maximum": 100, "description": "Defaults to the exam's own pass_score." },
+    "max_breaks": { "type": "integer", "minimum": 0, "maximum": 20, "description": "Defaults to the exam's own max_breaks." },
+    "clusters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["count", "kind"],
+      "properties": {
+        "count": { "type": "integer", "minimum": 1, "maximum": 6, "description": "How many clusters the student's machine builds before the clock starts." },
+        "kind": {
+          "type": "object",
+          "description": "The profile every cluster is built from, in a lab config's runtime.kind shape. A lab is eligible only if its own kind config fits: same node counts and CNI, addons a subset of these.",
+          "properties": {
+            "nodes": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "controlPlanes": { "const": 1 },
+                "workers": { "type": "integer", "minimum": 0, "maximum": 3 }
+              }
+            },
+            "addons": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "cni": { "type": "string", "minLength": 1, "description": "Absent means kind's default, kindnet." },
+                "metricsServer": { "type": "boolean" },
+                "certManager": { "type": "boolean" },
+                "gatewayAPI": { "type": "boolean" }
+              }
+            },
+            "clusters": false,
+            "labs": false
+          }
+        }
+      }
+    }
+  }
+}

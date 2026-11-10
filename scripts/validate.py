@@ -3,7 +3,8 @@
 
 Program pages: schema, file-name slugs, and child keys the sync matches on.
 Knowledge hub: the folder layout, front matter, unique slugs, and related
-groups that only name articles which exist.
+groups that only name articles which exist. Exams: the layout, unique domains,
+weights adding up to 100, and the shape of a `lab_exam` block.
 
     python3 scripts/validate.py          # needs PyYAML and jsonschema
 """
@@ -103,6 +104,7 @@ for group in groups:
             errors.append(f"knowledge-hub/related-groups.yaml: {group.get('title')!r} names unknown article {slug!r}")
 
 # -------------------------------------------------------------------- exams --
+lab_exam_schema = jsonschema.Draft202012Validator(json.loads((ROOT / "schema" / "lab-exam.schema.json").read_text()))
 EXAM_STATUSES = {"draft", "in_test", "published", "archived", "deprecated", "unpublished"}
 EXAMS = ROOT / "exams"
 exam_files = sorted(p for p in EXAMS.rglob("*") if p.is_file()) if EXAMS.is_dir() else []
@@ -135,6 +137,18 @@ for path in exam_files:
         errors.append(f"{rel}: duplicate domain {dupe!r}")
     if domains and sum(int(d.get("weight", 0)) for d in domains) != 100:
         errors.append(f"{rel}: domain weights add up to {sum(int(d.get('weight', 0)) for d in domains)}, not 100")
+    # lab_exam: the exam offers a full lab exam (schema/lab-exam.schema.json).
+    if "lab_exam" in exam:
+        lab_exam = exam["lab_exam"]
+        for err in lab_exam_schema.iter_errors(lab_exam):
+            where = "/".join(str(p) for p in err.absolute_path)
+            errors.append(f"{rel}: lab_exam{'/' + where if where else ''}: {err.message}")
+        tasks = (lab_exam or {}).get("tasks") if isinstance(lab_exam, dict) else None
+        if isinstance(tasks, dict) and isinstance(tasks.get("min"), int) and isinstance(tasks.get("max"), int):
+            if tasks["min"] > tasks["max"]:
+                errors.append(f"{rel}: lab_exam: tasks.min is above tasks.max")
+        if not domains:
+            errors.append(f"{rel}: lab_exam needs the exam's domains to draw labs by weight")
 
 # ----------------------------------------------------------------- partners --
 # partners/<slug>.yaml: whose material a course track includes (partner_content).
