@@ -167,10 +167,11 @@ unavailable and the sync reports which domain is short: as an error once the
 exam's `status` is `published`, as a warning before that.
 `schema/lab-exam.schema.json` is the block's shape.
 
-A lab must be written for it first: its own namespaces, checks that find the
-cluster from the environment, one validation script per outcome with points,
-and a `**Time:**` line. See
-[`authoring/exam-ready-labs.md`](authoring/exam-ready-labs.md).
+A lab must be written for it first, in ATS020's format: its own namespaces,
+no context guard, one `validation/validate-<outcome>.sh` grader per outcome
+with points, `astrona test` proving every outcome fails at the start and
+passes after the solution, and an `Allow about N minutes for the tasks.` line.
+See [`authoring/exam-ready-labs.md`](authoring/exam-ready-labs.md).
 
 ## Contributing
 
