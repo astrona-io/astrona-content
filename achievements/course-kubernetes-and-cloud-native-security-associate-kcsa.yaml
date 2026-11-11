@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Kubernetes and Cloud Native Security Associate (KCSA) Course Complete"
+how: "Finish every section of the Kubernetes and Cloud Native Security Associate (KCSA) course."
+order: 17
+ticket: { code: C-KCSA, theme: violet }
+rule: { kind: courses_completed, at_least: 1, course: kubernetes-and-cloud-native-security-associate-kcsa }

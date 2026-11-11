@@ -72,16 +72,18 @@
             "sections_completed",
             "courses_completed",
             "labs_passed",
+            "labs_started",
             "playgrounds_started",
             "playground_hours",
             "playground_renews",
             "lab_hours",
             "cockpit_hours",
             "mock_exams",
+            "lab_exams",
             "streak_days",
             "program"
           ],
-          "description": "lessons_completed: different lessons finished, each once. updated_lessons_read: lessons finished again after their text changed, once per update. sections_completed / courses_completed: course parts or whole courses with every lesson done. labs_passed: graded labs passed with astrona submit. playgrounds_started: playgrounds launched (a renew is not a launch). playground_renews: astrona run renew used. lab_hours: counted lab time (a lab counts once it passes). playground_hours: counted playground time (ended with astrona destroy). cockpit_hours: counted lab and playground time together. mock_exams: multiple-choice exams finished, optionally narrowed by level, exam and passed. streak_days: best streak. program: every certification of a program held."
+          "description": "lessons_completed: different lessons finished, each once. updated_lessons_read: lessons finished again after their text changed, once per update. sections_completed / courses_completed: course parts or whole courses with every lesson done (courses_completed may name one `course`). labs_passed: graded labs passed with astrona submit. labs_started: graded labs begun with astrona run, pass or not. playgrounds_started: playgrounds launched (a renew is not a launch). playground_renews: astrona run renew used. lab_hours: counted lab time (a lab counts once it passes). playground_hours: counted playground time (ended with astrona destroy). cockpit_hours: counted lab and playground time together. mock_exams: multiple-choice exams finished, optionally narrowed by level, exam and passed. lab_exams: full hands-on lab exams graded, optionally narrowed by exam, passed and min_score. streak_days: best streak. program: every certification of a program held."
         },
         "at_least": {
           "type": "integer",
@@ -105,11 +107,22 @@
         "exam": {
           "type": "string",
           "pattern": "^[a-z0-9-]+$",
-          "description": "mock_exams only: runs of this exam, by its file name under exams/ (cka, pca, ...)."
+          "description": "mock_exams and lab_exams only: runs of this exam, by its file name under exams/ (cka, pca, ...)."
         },
         "passed": {
           "type": "boolean",
-          "description": "mock_exams only: true counts passed runs only."
+          "description": "mock_exams and lab_exams only: true counts passed runs only."
+        },
+        "min_score": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "description": "lab_exams only: graded attempts scoring at least this whole percent."
+        },
+        "course": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "description": "courses_completed only: this one course, by its file name under courses/."
         }
       },
       "oneOf": [
@@ -152,7 +165,9 @@
             "properties": {
               "kind": {
                 "not": {
-                  "const": "mock_exams"
+                  "enum": [
+                    "mock_exams"
+                  ]
                 }
               }
             }
@@ -164,7 +179,27 @@
                   "required": [
                     "level"
                   ]
-                },
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "not": {
+                  "enum": [
+                    "mock_exams",
+                    "lab_exams"
+                  ]
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "anyOf": [
                 {
                   "required": [
                     "exam"
@@ -173,6 +208,54 @@
                 {
                   "required": [
                     "passed"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "not": {
+                  "enum": [
+                    "lab_exams"
+                  ]
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "min_score"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "not": {
+                  "enum": [
+                    "courses_completed"
+                  ]
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "course"
                   ]
                 }
               ]
