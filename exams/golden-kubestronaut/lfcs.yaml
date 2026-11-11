@@ -2,7 +2,7 @@
 # Question banks are not here and never will be: this repository is public.
 long_name: Linux Foundation Certified System Administrator
 status: in_test
-pass_score: 75
+pass_score: 67
 max_breaks: 3
 certification:
   provider: Linux Foundation

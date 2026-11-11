@@ -1,11 +1,24 @@
-# Provisional CKNE curriculum; not a current Golden Kubestronaut requirement.
-# No official pass score, duration, or launch date is asserted here.
-# Omitted assessment settings use platform defaults while this exam stays draft.
+# Certified Kubernetes Network Engineer — public exam definition.
+# Launched by the CNCF on 2026-11-10; certification facts checked on 2026-11-11.
+# Stays draft until Astrona has material for it.
 long_name: Certified Kubernetes Network Engineer
 status: draft
-description: 'CKNE is under development. This draft records the provisional domains
-  published by The Linux Foundation, checked on 2026-10-10. Exam launch date, assessment
-  settings and final curriculum must be confirmed before publication. Source: https://training.linuxfoundation.org/kubernetes-network-engineer-program/'
+pass_score: 67
+certification:
+  provider: Linux Foundation
+  type: performance_based
+  questions: 15
+  questions_max: 20
+  duration_minutes: 120
+  delivery: online_proctored
+  retakes: 1
+  validity_years: 2
+  price_usd: 445
+  url: https://training.linuxfoundation.org/certification/certified-kubernetes-network-engineer-ckne/
+description: |-
+  The Certified Kubernetes Network Engineer (CKNE) certification from the Cloud Native Computing Foundation (CNCF) validates your ability to build, secure and troubleshoot networking in production Kubernetes clusters: CNI and IPAM, Services and DNS, the Gateway API, network policy and encryption, egress and cross-cluster traffic, and network observability.
+
+  CKNE is a hands-on, performance-based exam taken in a live environment, aimed at engineers with CKA-level administration skills.
 domains:
 - name: Core Infrastructure and CNI
   weight: 15
