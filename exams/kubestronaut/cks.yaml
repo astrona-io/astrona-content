@@ -4,7 +4,7 @@ long_name: Certified Kubernetes Security Specialist
 status: in_test
 pass_score: 67
 max_breaks: 3
-# A full lab exam: 15-20 labs drawn by domain weight, two hours, on four kind
+# A hands-on exam: 15-20 labs drawn by domain weight, two hours, on four kind
 # clusters the student's machine builds before the clock starts. It stays
 # unavailable until enough CKS labs set examScope and fit the cluster profile.
 # Each cluster has one control plane and one worker on kind's default CNI,
@@ -24,7 +24,7 @@ description: |-
 
   Many candidates fail CKS due to time pressure, unfamiliar workflows, and overlooked security details. Knowing security concepts alone is not enough — you must apply them quickly and correctly.
 
-  This is why CKS simulator exams are essential. Practicing in realistic exam scenarios helps you master time management, avoid common security pitfalls, and build confidence under pressure. Simulator-based preparation dramatically increases your chance of passing on the first attempt.
+  This is why CKS multiple-choice exams are essential. Practicing in realistic exam scenarios helps you master time management, avoid common security pitfalls, and build confidence under pressure. This preparation dramatically increases your chance of passing on the first attempt.
 
   Train for real attacks. Defend with confidence. Pass CKS.
 domains:

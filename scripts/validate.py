@@ -137,7 +137,7 @@ for path in exam_files:
         errors.append(f"{rel}: duplicate domain {dupe!r}")
     if domains and sum(int(d.get("weight", 0)) for d in domains) != 100:
         errors.append(f"{rel}: domain weights add up to {sum(int(d.get('weight', 0)) for d in domains)}, not 100")
-    # lab_exam: the exam offers a full lab exam (schema/lab-exam.schema.json).
+    # lab_exam: the exam offers a hands-on exam (schema/lab-exam.schema.json).
     if "lab_exam" in exam:
         lab_exam = exam["lab_exam"]
         for err in lab_exam_schema.iter_errors(lab_exam):

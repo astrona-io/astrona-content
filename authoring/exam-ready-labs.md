@@ -1,6 +1,6 @@
 # Exam-ready labs
 
-A full lab exam draws 15 to 20 labs from the training repositories
+A hands-on exam draws 15 to 20 labs from the training repositories
 (`astrona-io/ATS*`) and runs them on a few kind clusters that the student's
 machine builds before the clock starts. Several labs share one cluster, and a
 lab no longer gets a cluster named after itself. A lab written for lab mode
