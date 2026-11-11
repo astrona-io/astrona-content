@@ -8,3 +8,4 @@ track:
   ref: main
 status: published
 maturity: alpha
+logo_url: https://raw.githubusercontent.com/cncf/artwork/main/projects/tekton/icon/color/tekton-icon-color.svg

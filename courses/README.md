@@ -10,7 +10,13 @@ track:
   ref: main
 status: published          # default draft
 exam_key: ica              # optional; default from the track's examPreparation.examId
+logo_url: https://…        # optional; see below
 ```
+
+`logo_url` is the course's logo on its card and course page: an `http(s)` URL
+to an image (SVG or PNG, square). Set it for a course with no certification
+badge, such as Harbor or Tekton. Without it the site shows the certification's
+badge, else the course's code.
 
 A track's `path.yaml` (`kind: TrainingPath`) lists stages; each stage is one
 exam domain and points at a repository with an `astrona.yaml` (an Astrona
