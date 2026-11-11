@@ -42,7 +42,7 @@
         "code": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 6,
+          "maxLength": 8,
           "description": "The letters on the patch, like an airport code."
         },
         "theme": {

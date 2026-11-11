@@ -269,7 +269,7 @@ and the twenty earned last:
 title: "Ten Successful Missions"
 how: "Pass ten graded labs."          # shown while not yet earned
 order: 21                             # earned ones come first, then this order
-ticket: { code: L10, theme: green }   # the patch: code up to 6 letters, unique; theme: blue, gold, green, cyan, orange, violet
+ticket: { code: L10, theme: green }   # the patch: code up to 8 characters, unique; theme: blue, gold, green, cyan, orange, violet
 rule: { kind: labs_passed, at_least: 10 }
 ```
 
