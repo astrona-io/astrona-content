@@ -1,8 +1,8 @@
 # Certified Kubernetes Network Engineer — public exam definition.
 # Launched by the CNCF on 2026-11-10; certification facts checked on 2026-11-11.
-# Stays draft until Astrona has material for it.
+# In test: labs are available; practice questions and a course are still to come.
 long_name: Certified Kubernetes Network Engineer
-status: draft
+status: in_test
 pass_score: 67
 certification:
   provider: Linux Foundation
