@@ -269,7 +269,7 @@ and the twenty earned last:
 title: "Ten Successful Missions"
 how: "Pass ten graded labs."          # shown while not yet earned
 order: 21                             # earned ones come first, then this order
-ticket: { code: L10, theme: green }   # the patch: code up to 6 letters, unique; theme: blue, gold, green, cyan, orange, violet
+ticket: { code: L10, theme: green }   # the patch: code up to 8 characters, unique; theme: blue, gold, green, cyan, orange, violet
 rule: { kind: labs_passed, at_least: 10 }
 ```
 
@@ -277,12 +277,16 @@ Rule kinds, all worked out from data the services already keep (nothing is store
 per student for a ticket): `lessons_completed` (different lessons finished, each once),
 `updated_lessons_read` (a lesson finished again after its text changed — once per
 update, to bring readers back to what changed), `sections_completed`, `courses_completed` (every lesson
-done), `labs_passed` (graded labs passed with `astrona submit`),
+done; `course: <slug>` narrows it to one course, by its file name under `courses/`),
+`labs_passed` (graded labs passed with `astrona submit`), `labs_started` (graded labs
+begun with `astrona run`, pass or not),
 `playgrounds_started` (playgrounds launched; renewing one with `astrona run renew` is not
 a new launch), `playground_renews` (renews used), `playground_hours` (counted
 playground time — ended with `astrona destroy` or renewed), `lab_hours` (counted lab
 time — a lab counts once it passes), `cockpit_hours` (labs and playgrounds together),
-`mock_exams`, `streak_days` (best streak) — each with `at_least` — and
+`mock_exams` (multiple-choice exams; `level`, `exam` and `passed` narrow it),
+`lab_exams` (graded full hands-on lab exams; `exam`, `passed` and `min_score` narrow
+it), `streak_days` (best streak) — each with `at_least` — and
 `program` with `program: kubestronaut | golden-kubestronaut` (every certification
 of the program held; its progress is certifications held out of the program's). The git sync mirrors the folder into the content service;
 git owns every achievement.

@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Twenty-Five Full Lab Exams"
+how: "Finish 25 full hands-on lab exams — each counts once it is graded, pass or not."
+order: 56
+ticket: { code: LX25, theme: gold }
+rule: { kind: lab_exams, at_least: 25 }

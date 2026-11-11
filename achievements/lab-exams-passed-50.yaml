@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Full Lab Exam Passed Fifty Times"
+how: "Pass 50 full hands-on lab exams — each graded at or above its pass mark."
+order: 57
+ticket: { code: LXP50, theme: gold }
+rule: { kind: lab_exams, at_least: 50, passed: true }

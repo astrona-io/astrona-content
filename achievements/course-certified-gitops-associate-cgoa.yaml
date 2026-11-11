@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Certified GitOps Associate (CGOA) Course Complete"
+how: "Finish every section of the Certified GitOps Associate (CGOA) course."
+order: 17
+ticket: { code: C-CGOA, theme: violet }
+rule: { kind: courses_completed, at_least: 1, course: certified-gitops-associate-cgoa }
