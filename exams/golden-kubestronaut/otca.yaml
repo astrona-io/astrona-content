@@ -4,6 +4,16 @@ long_name: OpenTelemetry Certified Associate
 status: in_test
 pass_score: 75
 max_breaks: 3
+certification:
+  provider: Linux Foundation
+  type: multiple_choice
+  questions: 60
+  duration_minutes: 90
+  delivery: online_proctored
+  retakes: 1
+  validity_years: 2
+  price_usd: 250
+  url: https://training.linuxfoundation.org/certification/opentelemetry-certified-associate-otca/
 description: |-
   The OpenTelemetry Certified Associate (OTCA) certification validates your foundational understanding of observability and telemetry in cloud native systems using OpenTelemetry. It’s designed for engineers who want to prove they understand how metrics, logs, and traces work together to deliver end-to-end observability in modern Kubernetes environments.
 

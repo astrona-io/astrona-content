@@ -17,6 +17,17 @@ lab_exam:
     count: 4
     kind:
       nodes: { controlPlanes: 1, workers: 1 }
+certification:
+  provider: Linux Foundation
+  type: performance_based
+  questions: 15
+  questions_max: 20
+  duration_minutes: 120
+  delivery: online_proctored
+  retakes: 1
+  validity_years: 2
+  price_usd: 445
+  url: https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/
 description: |-
   The Certified Kubernetes Security Specialist (CKS) certification from the Cloud Native Computing Foundation (CNCF) is the most advanced Kubernetes security certification. It proves you can secure Kubernetes clusters and workloads in real-world production environments and respond effectively to security threats.
 

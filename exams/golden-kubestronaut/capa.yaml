@@ -4,6 +4,16 @@ long_name: Certified Argo Project Associate
 status: in_test
 pass_score: 75
 max_breaks: 3
+certification:
+  provider: Linux Foundation
+  type: multiple_choice
+  questions: 60
+  duration_minutes: 90
+  delivery: online_proctored
+  retakes: 1
+  validity_years: 2
+  price_usd: 250
+  url: https://training.linuxfoundation.org/certification/certified-argo-project-associate-capa/
 description: |-
   The Certified Argo Project Associate (CAPA) certification validates your understanding of GitOps and workflow automation using the Argo Project. It’s designed for engineers who want to prove foundational knowledge of Argo tools and modern continuous delivery patterns in Kubernetes environments.
 

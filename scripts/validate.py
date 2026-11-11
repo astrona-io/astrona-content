@@ -105,6 +105,9 @@ for group in groups:
 
 # -------------------------------------------------------------------- exams --
 lab_exam_schema = jsonschema.Draft202012Validator(json.loads((ROOT / "schema" / "lab-exam.schema.json").read_text()))
+certification_schema = jsonschema.Draft202012Validator(
+    json.loads((ROOT / "schema" / "exam-certification.schema.json").read_text())
+)
 EXAM_STATUSES = {"draft", "in_test", "published", "archived", "deprecated", "unpublished"}
 EXAMS = ROOT / "exams"
 exam_files = sorted(p for p in EXAMS.rglob("*") if p.is_file()) if EXAMS.is_dir() else []
@@ -137,6 +140,15 @@ for path in exam_files:
         errors.append(f"{rel}: duplicate domain {dupe!r}")
     if domains and sum(int(d.get("weight", 0)) for d in domains) != 100:
         errors.append(f"{rel}: domain weights add up to {sum(int(d.get('weight', 0)) for d in domains)}, not 100")
+    # certification: the real certification's facts (schema/exam-certification.schema.json).
+    if "certification" in exam:
+        certification = exam["certification"]
+        for err in certification_schema.iter_errors(certification):
+            where = "/".join(str(p) for p in err.absolute_path)
+            errors.append(f"{rel}: certification{'/' + where if where else ''}: {err.message}")
+        if isinstance(certification, dict) and isinstance(certification.get("questions_max"), int):
+            if certification["questions_max"] <= certification.get("questions", 0):
+                errors.append(f"{rel}: certification: questions_max must be above questions")
     # lab_exam: the exam offers a hands-on exam (schema/lab-exam.schema.json).
     if "lab_exam" in exam:
         lab_exam = exam["lab_exam"]

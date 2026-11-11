@@ -139,6 +139,29 @@ renaming a domain replaces it — and the sync refuses to remove a domain that
 questions still use. An exam removed from here that has attempts or questions
 is archived, not deleted.
 
+### Certification facts (`certification`)
+
+The real certification's facts, shown on the exam page (the hero chips and the
+format tooltip). Take every value from the provider's official pages: the
+product page, its FAQ and its exam instructions. The pass score shown is the
+exam's own `pass_score`.
+
+```yaml
+certification:
+  provider: Linux Foundation
+  type: multiple_choice            # multiple_choice | performance_based
+  questions: 60                    # or the low end of a range…
+  questions_max: 20                # …and its high end ("15–20 tasks")
+  duration_minutes: 90
+  delivery: online_proctored
+  retakes: 1                       # free retakes included
+  validity_years: 2
+  price_usd: 250                   # exam-only list price
+  url: https://training.linuxfoundation.org/certification/kubernetes-cloud-native-associate/
+```
+
+`schema/exam-certification.schema.json` is the block's shape.
+
 ### Hands-on exams (`lab_exam`)
 
 An exam file may add a `lab_exam` block: the exam then offers a hands-on exam,
