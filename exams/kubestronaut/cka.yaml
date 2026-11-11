@@ -4,6 +4,17 @@ long_name: Certified Kubernetes Administrator
 status: in_test
 pass_score: 66
 max_breaks: 3
+certification:
+  provider: Linux Foundation
+  type: performance_based
+  questions: 15
+  questions_max: 20
+  duration_minutes: 120
+  delivery: online_proctored
+  retakes: 1
+  validity_years: 2
+  price_usd: 445
+  url: https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/
 description: |-
   The Certified Kubernetes Administrator (CKA) certification from the Cloud Native Computing Foundation (CNCF) is the industry-recognized standard for validating real-world Kubernetes administration skills. It proves you can install, configure, operate, and troubleshoot Kubernetes clusters in production environments.
 

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Exam certification",
+  "description": "The `certification` block of an exam (exams/<group>/<exam>.yaml): the real certification's facts, taken from the provider's official pages and shown on the exam page. The pass score is the exam's own `pass_score`.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["provider", "type", "questions", "duration_minutes"],
+  "properties": {
+    "provider": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "description": "Who issues the certification (\"Linux Foundation\")."
+    },
+    "type": {
+      "enum": ["multiple_choice", "performance_based"],
+      "description": "multiple_choice: one correct answer out of several. performance_based: hands-on tasks in a live environment."
+    },
+    "questions": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Questions (or tasks) in the exam; the low end when questions_max is set."
+    },
+    "questions_max": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Optional; the high end when the provider gives a range (\"15–20 tasks\")."
+    },
+    "duration_minutes": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "delivery": {
+      "enum": ["online_proctored"],
+      "description": "How the exam is taken. Defaults to online_proctored."
+    },
+    "retakes": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Free retakes included with the purchase."
+    },
+    "validity_years": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "How long the certification stays valid."
+    },
+    "price_usd": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Exam-only list price in US dollars."
+    },
+    "url": {
+      "type": "string",
+      "pattern": "^https://",
+      "maxLength": 500,
+      "description": "The provider's page for the certification."
+    }
+  }
+}

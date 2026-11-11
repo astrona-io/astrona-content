@@ -4,6 +4,16 @@ long_name: Certified Backstage Associate
 status: in_test
 pass_score: 75
 max_breaks: 3
+certification:
+  provider: Linux Foundation
+  type: multiple_choice
+  questions: 60
+  duration_minutes: 90
+  delivery: online_proctored
+  retakes: 1
+  validity_years: 2
+  price_usd: 250
+  url: https://training.linuxfoundation.org/certification/certified-backstage-associate-cba/
 description: |-
   The Certified Backstage Associate (CBA) certification validates your understanding of developer portals and platform engineering concepts using Backstage. It’s designed for engineers and platform teams who want to improve developer experience by centralizing services, documentation, and software ownership in Kubernetes and cloud native environments.
 

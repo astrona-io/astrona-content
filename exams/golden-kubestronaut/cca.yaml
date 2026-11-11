@@ -4,6 +4,16 @@ long_name: Cilium Certified Associate
 status: in_test
 pass_score: 75
 max_breaks: 3
+certification:
+  provider: Linux Foundation
+  type: multiple_choice
+  questions: 60
+  duration_minutes: 90
+  delivery: online_proctored
+  retakes: 1
+  validity_years: 2
+  price_usd: 250
+  url: https://training.linuxfoundation.org/certification/cilium-certified-associate-cca/
 description: |-
   The Cilium Certified Associate (CCA) certification validates your foundational understanding of cloud native networking, security, and observability using Cilium and eBPF. It’s designed for engineers who want to prove they understand modern Kubernetes networking beyond traditional iptables-based approaches.
 

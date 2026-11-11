@@ -4,6 +4,16 @@ long_name: Kyverno Certified Associate
 status: in_test
 pass_score: 75
 max_breaks: 3
+certification:
+  provider: Linux Foundation
+  type: multiple_choice
+  questions: 60
+  duration_minutes: 90
+  delivery: online_proctored
+  retakes: 1
+  validity_years: 2
+  price_usd: 250
+  url: https://training.linuxfoundation.org/certification/kyverno-certified-associate-kca/
 description: |-
   The Kyverno Certified Associate (KCA) certification validates your foundational understanding of Kubernetes policy management and governance using Kyverno. It’s designed for engineers who want to enforce security, compliance, and best practices in Kubernetes clusters without writing complex code.
 

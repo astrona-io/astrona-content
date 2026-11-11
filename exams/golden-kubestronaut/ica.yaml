@@ -4,6 +4,17 @@ long_name: Istio Certified Associate
 status: in_test
 pass_score: 68
 max_breaks: 3
+certification:
+  provider: Linux Foundation
+  type: performance_based
+  questions: 15
+  questions_max: 20
+  duration_minutes: 120
+  delivery: online_proctored
+  retakes: 1
+  validity_years: 2
+  price_usd: 250
+  url: https://training.linuxfoundation.org/certification/istio-certified-associate-ica/
 description: |-
   The Istio Certified Associate (ICA) certification validates your understanding of service mesh concepts and Istio fundamentals in modern cloud native environments. It’s designed for engineers who want to prove they understand how Istio improves traffic management, security, and observability for Kubernetes-based applications.
 

@@ -4,6 +4,16 @@ long_name: Kubernetes and Cloud Native Associate
 status: in_test
 pass_score: 75
 max_breaks: 3
+certification:
+  provider: Linux Foundation
+  type: multiple_choice
+  questions: 60
+  duration_minutes: 90
+  delivery: online_proctored
+  retakes: 1
+  validity_years: 2
+  price_usd: 250
+  url: https://training.linuxfoundation.org/certification/kubernetes-cloud-native-associate/
 description: |-
   The Kubernetes and Cloud Native Associate (KCNA) certification from the Cloud Native Computing Foundation (CNCF) is the fastest way to prove your understanding of Kubernetes fundamentals and cloud native concepts. It’s designed for engineers who want to break into Kubernetes with confidence and build a strong foundation for future CNCF certifications.
 

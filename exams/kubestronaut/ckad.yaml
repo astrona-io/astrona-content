@@ -4,6 +4,17 @@ long_name: Certified Kubernetes Application Developer
 status: in_test
 pass_score: 66
 max_breaks: 3
+certification:
+  provider: Linux Foundation
+  type: performance_based
+  questions: 15
+  questions_max: 20
+  duration_minutes: 120
+  delivery: online_proctored
+  retakes: 1
+  validity_years: 2
+  price_usd: 445
+  url: https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad/
 description: |-
   The Certified Kubernetes Application Developer (CKAD) certification from the Cloud Native Computing Foundation (CNCF) validates your ability to design, build, and deploy applications on Kubernetes. It’s the go-to certification for developers who work with containerized workloads and want to prove real Kubernetes application skills.
 

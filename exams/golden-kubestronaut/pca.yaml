@@ -4,6 +4,16 @@ long_name: Prometheus Certified Associate
 status: in_test
 pass_score: 75
 max_breaks: 3
+certification:
+  provider: Linux Foundation
+  type: multiple_choice
+  questions: 60
+  duration_minutes: 90
+  delivery: online_proctored
+  retakes: 1
+  validity_years: 2
+  price_usd: 250
+  url: https://training.linuxfoundation.org/certification/prometheus-certified-associate/
 description: |-
   The Prometheus Certified Associate (PCA) certification from the Cloud Native Computing Foundation (CNCF) validates your foundational knowledge of monitoring, metrics, and observability using Prometheus. It’s ideal for engineers who want to understand how modern cloud native systems are monitored and measured at scale.
 

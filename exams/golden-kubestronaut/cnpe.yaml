@@ -4,6 +4,17 @@ long_name: Certified Cloud Native Platform Engineer
 status: in_test
 pass_score: 64
 max_breaks: 3
+certification:
+  provider: Linux Foundation
+  type: performance_based
+  questions: 15
+  questions_max: 20
+  duration_minutes: 120
+  delivery: online_proctored
+  retakes: 1
+  validity_years: 2
+  price_usd: 445
+  url: https://training.linuxfoundation.org/certification/certified-cloud-native-platform-engineer-cnpe/
 description: |-
   The Certified Cloud Native Platform Engineer (CNPE) certification from the Cloud Native Computing Foundation (CNCF) validates that you can build and run an internal platform on Kubernetes. It is designed for engineers who already work with Kubernetes every day and now design the platform other teams deploy to.
 

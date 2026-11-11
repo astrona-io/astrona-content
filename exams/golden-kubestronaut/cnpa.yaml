@@ -4,6 +4,16 @@ long_name: Certified Cloud Native Platform Engineering Associate
 status: in_test
 pass_score: 75
 max_breaks: 3
+certification:
+  provider: Linux Foundation
+  type: multiple_choice
+  questions: 85
+  duration_minutes: 120
+  delivery: online_proctored
+  retakes: 1
+  validity_years: 2
+  price_usd: 250
+  url: https://training.linuxfoundation.org/certification/certified-cloud-native-platform-engineering-associate-cnpa/
 description: |-
   The Certified Cloud Native Platform Engineering Associate (CNPA) certification from the Cloud Native Computing Foundation (CNCF) validates your foundational understanding of platform engineering principles in cloud native environments. It’s designed for engineers who want to build scalable internal platforms that improve developer productivity and operational consistency.
 

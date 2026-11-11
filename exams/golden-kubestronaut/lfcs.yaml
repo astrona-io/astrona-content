@@ -4,6 +4,17 @@ long_name: Linux Foundation Certified System Administrator
 status: in_test
 pass_score: 75
 max_breaks: 3
+certification:
+  provider: Linux Foundation
+  type: performance_based
+  questions: 17
+  questions_max: 20
+  duration_minutes: 120
+  delivery: online_proctored
+  retakes: 1
+  validity_years: 2
+  price_usd: 445
+  url: https://training.linuxfoundation.org/certification/linux-foundation-certified-sysadmin-lfcs/
 description: |-
   The Linux Foundation Certified System Administrator (LFCS) certification validates your ability to administer Linux systems in real-world environments. It’s designed for engineers who want to prove hands-on skills in managing Linux servers — a critical foundation for Kubernetes, cloud, and platform engineering roles.
 
