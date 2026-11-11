@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Full lab exam",
-  "description": "The optional lab_exam block of an exam file (exams/<group>/<exam>.yaml): the exam offers a full lab exam, a timed set of labs drawn by domain weight and run on `clusters.count` kind clusters built from one profile. The content sync checks that enough eligible labs exist and sends the block to astrona-svc-labs as a lab exam definition.",
+  "title": "Hands-on exam",
+  "description": "The optional lab_exam block of an exam file (exams/<group>/<exam>.yaml): the exam offers a hands-on exam, a timed set of labs drawn by domain weight and run on `clusters.count` kind clusters built from one profile. The content sync checks that enough eligible labs exist and sends the block to astrona-svc-labs as a hands-on exam definition.",
   "type": "object",
   "additionalProperties": false,
   "required": ["tasks", "time_limit_minutes", "break_minutes", "clusters"],

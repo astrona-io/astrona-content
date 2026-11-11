@@ -139,9 +139,9 @@ renaming a domain replaces it — and the sync refuses to remove a domain that
 questions still use. An exam removed from here that has attempts or questions
 is archived, not deleted.
 
-### Full lab exams (`lab_exam`)
+### Hands-on exams (`lab_exam`)
 
-An exam file may add a `lab_exam` block: the exam then offers a full lab exam,
+An exam file may add a `lab_exam` block: the exam then offers a hands-on exam,
 a timed set of labs drawn by domain weight from the training repositories
 (`astrona-io/ATS*`) and run on the student's machine.
 
