@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Comms Officer"
+how: "Write 250 comments on other students' timeline events (replies count too)."
+order: 86
+ticket: { code: COM250, theme: cyan }
+rule: { kind: comments_written, at_least: 250 }

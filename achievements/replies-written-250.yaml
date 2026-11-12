@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Crosstalk Veteran"
+how: "Reply to 250 comments from other astronauts."
+order: 87
+ticket: { code: XTK250, theme: violet }
+rule: { kind: replies_written, at_least: 250 }

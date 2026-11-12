@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Fifty Replies Over Comms"
+how: "Reply to 50 comments from other astronauts."
+order: 87
+ticket: { code: XTK50, theme: violet }
+rule: { kind: replies_written, at_least: 50 }
