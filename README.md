@@ -300,7 +300,7 @@ A snippet can sit in a card with an animation beside it by wrapping its text:
 Each file is one achievement in the student's **flight log**
 (`/account/flight-log`), shown as a mission patch — tickets are kept for the
 certification programs. The dashboard shows the three closest to being earned
-and the twenty earned last:
+and the twelve earned last (Explore shows the rest):
 `achievements/<slug>.yaml`, checked against `schema/achievement.schema.json`.
 
 ```yaml
