@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "A Thousand Cheers Sent"
+how: "Like 1000 timeline events from other students."
+order: 85
+ticket: { code: CHR1000, theme: orange }
+rule: { kind: likes_given, at_least: 1000 }

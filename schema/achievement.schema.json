@@ -81,9 +81,17 @@
             "mock_exams",
             "lab_exams",
             "streak_days",
+            "likes_given",
+            "comments_written",
+            "replies_written",
+            "likes_received",
+            "comments_received",
+            "followers",
+            "event_likes",
+            "event_comments",
             "program"
           ],
-          "description": "lessons_completed: different lessons finished, each once. updated_lessons_read: lessons finished again after their text changed, once per update. sections_completed / courses_completed: course parts or whole courses with every lesson done (courses_completed may name one `course`). labs_passed: graded labs passed with astrona submit. labs_started: graded labs begun with astrona run, pass or not. playgrounds_started: playgrounds launched (a renew is not a launch). playground_renews: astrona run renew used. lab_hours: counted lab time (a lab counts once it passes). playground_hours: counted playground time (ended with astrona destroy). cockpit_hours: counted lab and playground time together. mock_exams: multiple-choice exams finished, optionally narrowed by level, exam and passed. lab_exams: full hands-on lab exams graded, optionally narrowed by exam, passed and min_score. streak_days: best streak. program: every certification of a program held."
+          "description": "lessons_completed: different lessons finished, each once. updated_lessons_read: lessons finished again after their text changed, once per update. sections_completed / courses_completed: course parts or whole courses with every lesson done (courses_completed may name one `course`). labs_passed: graded labs passed with astrona submit. labs_started: graded labs begun with astrona run, pass or not. playgrounds_started: playgrounds launched (a renew is not a launch). playground_renews: astrona run renew used. lab_hours: counted lab time (a lab counts once it passes). playground_hours: counted playground time (ended with astrona destroy). cockpit_hours: counted lab and playground time together. mock_exams: multiple-choice exams finished, optionally narrowed by level, exam and passed. lab_exams: full hands-on lab exams graded, optionally narrowed by exam, passed and min_score. streak_days: best streak. Social (hidden comments, actions on your own events and your own comments on your own threads never count; a removed like or comment stops counting but an awarded patch stays): likes_given: likes you gave on other students' events. comments_written: comments you wrote on other students' events, replies included. replies_written: replies to another student's comment. likes_received: likes from others on your events. comments_received: comments from others on your events. followers: followers visible now (public profile, not blocked). event_likes: most likes from others on any one of your events. event_comments: most comments from others on any one of your events. program: every certification of a program held."
         },
         "at_least": {
           "type": "integer",

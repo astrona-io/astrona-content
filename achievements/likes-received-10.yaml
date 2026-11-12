@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Ten Rounds of Applause"
+how: "Get 10 likes from other students on your timeline events."
+order: 88
+ticket: { code: APL10, theme: gold }
+rule: { kind: likes_received, at_least: 10 }

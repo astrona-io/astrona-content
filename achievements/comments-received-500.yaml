@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Mailbag Full"
+how: "Get 500 comments from other students on your timeline events."
+order: 89
+ticket: { code: MAIL500, theme: green }
+rule: { kind: comments_received, at_least: 500 }

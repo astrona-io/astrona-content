@@ -1,0 +1,7 @@
+# A mission patch in the student's flight log (/account/flight-log, a glance on the dashboard). It is worked out from
+# data the site already has; see README "Achievements" for the rule kinds.
+title: "Clear the Tower"
+how: "Get 25 likes from other students on one timeline event."
+order: 91
+ticket: { code: LFT25, theme: orange }
+rule: { kind: event_likes, at_least: 25 }

@@ -324,7 +324,16 @@ playground time — ended with `astrona destroy` or renewed), `lab_hours` (count
 time — a lab counts once it passes), `cockpit_hours` (labs and playgrounds together),
 `mock_exams` (multiple-choice exams; `level`, `exam` and `passed` narrow it),
 `lab_exams` (graded full hands-on lab exams; `exam`, `passed` and `min_score` narrow
-it), `streak_days` (best streak) — each with `at_least` — and
+it), `streak_days` (best streak), and the social ones from the timeline:
+`likes_given` (likes you gave on other students' events), `comments_written`
+(comments you wrote on other students' events, replies included), `replies_written`
+(replies to another student's comment), `likes_received` (likes from others on your
+events), `comments_received` (comments from others on your events), `followers`
+(followers visible now — public profile, not blocked), `event_likes` (most likes from
+others on any one of your events) and `event_comments` (most comments from others on
+any one of your events). The social counts skip hidden comments, actions on your own
+events and your own comments in your own threads; a like or comment that is removed
+stops counting, but a patch already earned stays. All of these take `at_least` — and
 `program` with `program: kubestronaut | golden-kubestronaut` (every certification
 of the program held; its progress is certifications held out of the program's). The git sync mirrors the folder into the content service;
 git owns every achievement.
