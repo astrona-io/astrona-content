@@ -4,3 +4,5 @@ description: >-
   Protect workloads, identities, secrets, and cluster resources by applying secure configurations, access
   controls, policies, and threat detection practices.
 sort_order: 0
+code: SEC
+color: '#ff5bb0'

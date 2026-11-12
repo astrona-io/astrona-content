@@ -5,6 +5,7 @@ summary: >-
   popular when you need both connectivity and security in one solution.
 published: true
 published_at: '2026-03-14T11:11:19.364717Z'
+certifications: [cka, kcna]
 ---
 
 ## What Calico is and why it matters

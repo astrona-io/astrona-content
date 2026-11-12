@@ -4,3 +4,5 @@ description: >-
   Collect metrics, logs, and traces to understand system health, troubleshoot issues faster, and improve
   reliability through better visibility.
 sort_order: 0
+code: OBS
+color: '#ff7a18'

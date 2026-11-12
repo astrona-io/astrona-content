@@ -3,6 +3,8 @@ title: Vector
 summary: In PromQL, a vector is a set of time series values.
 published: true
 published_at: '2026-03-14T06:21:41.471617Z'
+sort_order: 3
+certifications: [pca]
 ---
 
 ## Instant vector

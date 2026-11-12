@@ -5,6 +5,7 @@ summary: >-
   the level of service they can expect.
 published: true
 published_at: '2026-03-14T07:11:44.369776Z'
+certifications: [pca, kcna]
 ---
 
 ## In observability eyes

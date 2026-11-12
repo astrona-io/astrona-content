@@ -5,6 +5,8 @@ summary: >-
   another vector when you do binary operations between them.
 published: true
 published_at: '2026-03-14T06:58:25.445413Z'
+sort_order: 4
+certifications: [pca]
 ---
 
 ## Easy example

@@ -5,6 +5,7 @@ summary: >-
   a service is performing.
 published: true
 published_at: '2026-03-14T07:17:48.875605Z'
+certifications: [pca, kcna]
 ---
 
 ## In observability eyes

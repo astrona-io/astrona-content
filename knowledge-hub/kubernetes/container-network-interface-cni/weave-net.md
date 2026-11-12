@@ -6,6 +6,7 @@ summary: >-
   and partly as a legacy option.
 published: true
 published_at: '2026-03-14T09:21:22.816494Z'
+certifications: [kcna]
 ---
 
 ## What Weave Net is, and why it matters

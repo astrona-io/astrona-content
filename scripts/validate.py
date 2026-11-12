@@ -2,8 +2,9 @@
 """Check every content file before it is merged.
 
 Program pages: schema, file-name slugs, and child keys the sync matches on.
-Knowledge hub: the folder layout, front matter, unique slugs, and related
-groups that only name articles which exist. Exams: the layout, unique domains,
+Knowledge hub: the folder layout, front matter, unique slugs, section codes
+and colours, entry order and certifications, and related groups that only name
+articles which exist. Exams: the layout, unique domains,
 weights adding up to 100, and the shape of a `lab_exam` block.
 
     python3 scripts/validate.py          # needs PyYAML and jsonschema
@@ -52,6 +53,17 @@ FRONT = re.compile(r"\A---\n(.*?)\n---\n", re.S)
 KH = ROOT / "knowledge-hub"
 kh_files = sorted(p for p in KH.rglob("*") if p.is_file()) if KH.is_dir() else []
 seen: dict[str, dict[str, str]] = {"section": {}, "topic": {}, "article": {}}
+# Section slugs that would collide with the hub's own pages (/knowledge-hub/glossary, …).
+RESERVED_SECTIONS = {"glossary", "exam", "search"}
+SECTION_CODE = re.compile(r"^[A-Z]{3}$")
+COLOR = re.compile(r"^#[0-9a-fA-F]{6}$")
+section_codes: dict[str, str] = {}
+# (file, exam slugs) per article; checked once the exams are read below.
+article_certifications: list[tuple[str, object]] = []
+
+
+def is_int(value):
+    return isinstance(value, int) and not isinstance(value, bool)
 
 
 def note(kind, slug, rel):
@@ -81,8 +93,21 @@ for path in kh_files:
     if parts == ("related-groups.yaml",):
         groups = yaml.safe_load(path.read_text()) or []
     elif len(parts) == 2 and parts[1] == "_section.yaml":
-        mapping(path, rel)
+        section = mapping(path, rel)
         note("section", parts[0], rel)
+        if parts[0] in RESERVED_SECTIONS:
+            errors.append(f"{rel}: {parts[0]!r} is reserved for a hub page; pick another section slug")
+        code = section.get("code")
+        if code is not None:
+            if not isinstance(code, str) or not SECTION_CODE.match(code):
+                errors.append(f"{rel}: code must be exactly 3 uppercase letters (A-Z), like OBS")
+            elif code in section_codes:
+                errors.append(f"{rel}: code {code!r} is also used by {section_codes[code]}")
+            else:
+                section_codes[code] = rel
+        color = section.get("color")
+        if color is not None and (not isinstance(color, str) or not COLOR.match(color)):
+            errors.append(f"{rel}: color must be a hex colour like '#ff7a18' (quote it in YAML)")
     elif len(parts) == 3 and parts[2] == "_topic.yaml":
         mapping(path, rel)
         note("topic", parts[1], rel)
@@ -96,6 +121,13 @@ for path in kh_files:
         meta = yaml.safe_load(match.group(1)) if match else None
         if not isinstance(meta, dict) or not meta.get("title"):
             errors.append(f"{rel}: must start with front matter (--- … ---) that has a title")
+            continue
+        if "sort_order" in meta and not is_int(meta["sort_order"]):
+            errors.append(f"{rel}: sort_order must be a whole number")
+        if meta.get("featured") is not None and not (is_int(meta["featured"]) and meta["featured"] >= 1):
+            errors.append(f"{rel}: featured must be a whole number from 1 (its place in \"Start here\")")
+        if "certifications" in meta:
+            article_certifications.append((rel, meta["certifications"]))
     else:
         errors.append(f"{rel}: not part of the knowledge-hub layout (see README)")
 for group in groups:
@@ -161,6 +193,17 @@ for path in exam_files:
                 errors.append(f"{rel}: lab_exam: tasks.min is above tasks.max")
         if not domains:
             errors.append(f"{rel}: lab_exam needs the exam's domains to draw labs by weight")
+
+# An article's certifications name exam files (exams/<group>/<slug>.yaml) by slug.
+for rel, certifications in article_certifications:
+    if not isinstance(certifications, list) or not all(isinstance(c, str) for c in certifications):
+        errors.append(f"{rel}: certifications must be a list of exam slugs, like [pca, kcna]")
+        continue
+    for slug in sorted({c for c in certifications if certifications.count(c) > 1}):
+        errors.append(f"{rel}: certification {slug!r} is listed twice")
+    for slug in certifications:
+        if slug not in exam_names:
+            errors.append(f"{rel}: certification {slug!r} is not an exam file under exams/")
 
 # ----------------------------------------------------------------- partners --
 # partners/<slug>.yaml: whose material a course track includes (partner_content).

@@ -5,6 +5,8 @@ summary: >-
   eBPF. It matters because networking, security, and visibility are core parts of running Kubernetes reliably.
 published: true
 published_at: '2026-03-14T09:13:11.570468Z'
+featured: 2
+certifications: [cca, cka, kcna]
 ---
 
 ## What Cilium is and why it matters

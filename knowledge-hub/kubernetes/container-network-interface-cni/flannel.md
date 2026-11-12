@@ -5,6 +5,7 @@ summary: >-
   an overlay or routed network, making cluster communication easy to understand and operate.
 published: true
 published_at: '2026-03-14T11:01:56.239105Z'
+certifications: [cka, kcna]
 ---
 
 ## What Flannel Is

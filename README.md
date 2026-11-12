@@ -84,7 +84,7 @@ it for completion.
 ## The knowledge hub
 
 ```
-knowledge-hub/<section>/_section.yaml            title, description, sort_order
+knowledge-hub/<section>/_section.yaml            title, description, sort_order, code, color
 knowledge-hub/<section>/<topic>/_topic.yaml      title, description, sort_order
 knowledge-hub/<section>/<topic>/<article>.md     one article; the file name is its URL slug
 knowledge-hub/related-groups.yaml                "related articles" groups
@@ -98,6 +98,9 @@ title: Cilium
 summary: Cilium is a modern Kubernetes CNI …
 published: true                 # false keeps it off the site
 published_at: '2026-03-14T09:13:11Z'
+sort_order: 2                   # optional: place in its topic (then title); default 0
+featured: 2                     # optional: a "Start here" pick on the hub home, 1 first
+certifications: [cca, cka, kcna] # optional: exams it helps with, by exam file slug
 ---
 
 ## What Cilium is and why it matters
@@ -111,6 +114,18 @@ A block whose first line is that comment is shown as plain text.
 ```
 
 - Slugs are global: no two topics, and no two articles, may share one.
+  `glossary`, `exam` and `search` are hub pages, so no section may use them.
+- A section's `code` is its three-letter reference (`OBS`), unique and
+  uppercase; entries are referred to by it (`OBS·06·02` is the second entry of
+  the area's sixth topic). Its `color` (`'#ff7a18'`, quoted) is the area's
+  colour on the site.
+- An article's place in its topic is `sort_order`, then title; leave it out to
+  keep them alphabetical. `featured` puts it in "Start here" on the hub home
+  (ascending, three at most).
+- `certifications` lists the exams an article helps with, by the exam's file
+  name under `exams/` (`pca` for `exams/golden-kubestronaut/pca.yaml`). The hub
+  gets a page per certification an article names, titled with the exam's
+  `long_name`.
 - Moving an article to another folder moves it on the site; renaming the file
   makes it a new article (its votes stay with the old one, which is deleted).
 - `related-groups.yaml` lists groups by `title`, with `articles` (the group,
