@@ -4,6 +4,9 @@ summary: >-
   PromQL is the query language used by Prometheus to read and analyze time-series metrics.
 published: true
 published_at: '2026-03-14T06:12:52.228237Z'
+sort_order: 2
+featured: 1
+certifications: [pca, kcna]
 ---
 
 ## What PromQL works with

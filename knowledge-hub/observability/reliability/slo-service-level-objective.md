@@ -4,6 +4,8 @@ summary: >-
   In observability, SLO (Service Level Objective) is the target value you set for a service-level measurement.
 published: true
 published_at: '2026-03-14T07:20:54.940648Z'
+featured: 3
+certifications: [pca, kcna]
 ---
 
 ## In observability eyes

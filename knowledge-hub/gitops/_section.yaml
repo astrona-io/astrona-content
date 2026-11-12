@@ -4,3 +4,5 @@ description: >-
   Manage infrastructure and applications through Git-based workflows, enabling version control, automated
   delivery, consistency, and reliable change management across Kubernetes and cloud-native platforms.
 sort_order: 0
+code: GIT
+color: '#39ff88'
