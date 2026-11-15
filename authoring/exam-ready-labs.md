@@ -60,8 +60,8 @@ The name is unique across every training, so the draw can put any two
 namespace-scoped labs on the same cluster. Rename the namespace everywhere it
 appears: bootstrap manifests and scripts, the solution, the graders, the
 `kubernetes.io/metadata.name` values in NetworkPolicy selectors, etcd keys
-such as `/registry/secrets/<namespace>/...`, `question.md`, `solution.md`,
-`docs/` and the README. Story text that names a team ("the starfleet team")
+such as `/registry/secrets/<namespace>/...`, `question.md`, `solution.md`
+and every `solution.<name>.md`, `docs/` and the README. Story text that names a team ("the starfleet team")
 can stay as it is; text that names the namespace uses the new name in
 backticks.
 
@@ -112,7 +112,7 @@ guard the same way: `CONTEXT = os.environ.get('ASTRONA_KUBE_CONTEXT') or
 the guard to make a lab portable; make it read `ASTRONA_KUBE_CONTEXT`
 instead. A lab that never touches a node needs only the context variable.
 
-`question.md`, `solution.md` and the prerequisites keep the lab mode block
+`question.md`, every solution file and the prerequisites keep the lab mode block
 (`export KUBECONFIG="$(astrona kubeconfig <lab>)"` and the two node names):
 that is what a student types in lab mode. The exam shows its own header with
 the context and node names.
@@ -311,6 +311,73 @@ Two more traps the ATS031 conversion found:
 - Pin downloaded tools to a version (`cosign v2.4.1`, not
   `releases/latest`); a new major release can break the setup.
 
+## The lab's docs: question and solutions
+
+These apply to every lab, exam-ready or not.
+
+### `question.md` front matter
+
+`question.md` starts with front matter that names the task for people:
+
+```markdown
+---
+title: Create Deployments From Workflow Inputs
+estimated_duration: 15m
+summary: Turn a release workflow's inputs into two Deployments in their own namespace.
+---
+
+# Create Deployments From Workflow Inputs
+
+Allow about 12 minutes for the tasks.
+```
+
+- `title` is the readable lab title that astrona shows. It matches the lab's
+  `title` in the training's `astrona.yaml` without the trailing ` Lab`
+  (`Scrape Pods With A PodMonitor Lab` there is `Scrape Pods With A
+  PodMonitor` here). `metadata.name` in `config.yaml` stays the identifier
+  for the cluster, grading and telemetry; never put the title there.
+- `estimated_duration` is the same value as the lab's entry in
+  `astrona.yaml` (lab mode time, learning included). The exam time is still
+  the `Allow about N minutes` line under the heading (rule 5).
+- `summary` is one sentence about the task, shown under the title.
+
+### One solution file per approach
+
+When a task has more than one practical way to solve it (the CLI and a web
+UI, `kubectl` and Helm), write one file per approach next to `config.yaml`:
+
+- `solution.md` is the default solution, normally the terminal way. A lab
+  that names another file in `metadata.docs.solution` keeps that file as its
+  default.
+- Every other approach is `solution.<name>.md`, `<name>` in lower-case
+  kebab-case (`solution.web-ui.md`, `solution.helm.md`).
+- Each file starts with front matter:
+
+  ```markdown
+  ---
+  title: Web UI
+  order: 20
+  summary: Create the Deployments from the dashboard instead of kubectl.
+  ---
+  ```
+
+  `title` is the name in the solution menu (without it, the first `# `
+  heading is used). `order` sorts the menu, lowest first; use steps of 10
+  (`10` for the default, `20`, `30` for the rest) so a new one fits between.
+  Solutions without `order` come after those with one: the default first,
+  then the rest by title. `summary` is one sentence shown under the title.
+- Each solution covers the whole task from start to finish, setup to the last
+  `astrona submit`, on its own. Never write "do steps 1 to 3 from the
+  terminal solution, then": a student reads one file.
+- `config.yaml` does not list the solution files; astrona finds them. The
+  `solution/` folder (`apply.sh` and the manifests `testing.init` runs) is a
+  different thing and stays as it is.
+- Images use relative paths to an `images/` folder next to the file
+  (`![Create form](images/web-ui-create.png)`), so they also render on
+  GitHub. PNG, JPEG, WebP or GIF only, never SVG.
+- Solutions are for lab mode. Exams and playgrounds never show them, and they
+  are never published on the website.
+
 ## Checklist
 
 For each lab:
@@ -334,6 +401,11 @@ For each lab:
       `wait-solved`.
 - [ ] `question.md` has `Allow about N minutes for the tasks.` under the
       title, N at most 20 for the exam.
+- [ ] `question.md` has front matter with `title`, `estimated_duration` and
+      `summary`, matching the lab's entry in `astrona.yaml`.
+- [ ] Each solution (`solution.md`, any `solution.<name>.md`) has front
+      matter with `title`, `order` and `summary`, covers the whole task on
+      its own, and uses relative PNG/JPEG/WebP/GIF images from `images/`.
 - [ ] `examScope` set in `astrona.yaml` when the lab fits the profile.
 - [ ] `astrona validate <lab-dir>` passes, and `astrona test <lab-dir>
       --accept-terms --headless` passes: every outcome fails at the start and
