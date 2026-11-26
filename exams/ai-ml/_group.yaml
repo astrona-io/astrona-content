@@ -1,0 +1,5 @@
+# Exam group: AI & ML — the exams of Astrona's own Neuronaut path.
+# The exams are real Linux Foundation certifications; the path is not an
+# official programme (program-pages/neuronaut.yaml sets official: false).
+long_name: AI & ML
+description: Linux Foundation certifications for AI and machine learning engineering.

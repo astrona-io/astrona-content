@@ -12,6 +12,7 @@
     "title": { "type": "string", "minLength": 1, "maxLength": 200 },
     "status": { "enum": ["draft", "published"], "default": "draft", "description": "draft pages are not shown on the site." },
     "sort_order": { "type": "integer", "minimum": 0, "default": 0, "description": "Order among pages of the same kind (menus, footer)." },
+    "official": { "type": "boolean", "default": true, "description": "false for a certification path Astrona groups itself (Neuronaut): its exams are official certifications, but no certification body awards the path title. The site labels it as Astrona's own." },
     "logo_url": { "type": "string", "maxLength": 500 },
     "logo_alt": { "type": "string", "maxLength": 200 },
     "seo_title": { "type": "string", "maxLength": 200 },

@@ -1,0 +1,55 @@
+# Neuronaut Path
+# Synced to the content service by astrona-svc-content-sync on merge to main.
+# Field reference: schema/program-page.schema.json
+#
+# Built on official exams: all four are official Linux Foundation certifications.
+# Only the grouping and the Neuronaut title are Astrona's; no certification body
+# awards "Neuronaut" itself.
+
+kind: certification_path
+title: Neuronaut Path
+status: published
+sort_order: 2
+official: false
+logo_url: /certs/neuronaut.svg
+logo_alt: Neuronaut
+seo_title: Neuronaut AI & ML Certifications
+seo_description: >-
+  Explore Astrona's Neuronaut path: four Linux Foundation AI and ML certifications, MCPA, SAIA, OSCA and
+  PTCA, with practice exams and study material on Astrona.
+intro: >-
+  Start here if you build AI and machine learning systems and want certifications that prove it. Neuronaut
+  groups four Linux Foundation exams: connecting models to tools with the Model Context Protocol, securing
+  AI systems, searching with OpenSearch, and training models with PyTorch.
+lead: >-
+  Every exam on the path is an official Linux Foundation certification, taken and awarded by the
+  Linux Foundation. Neuronaut itself is Astrona's grouping of them, not a Linux Foundation programme.
+entries_eyebrow: Certifications
+entries_heading: The four certifications on the Neuronaut path
+highlights:
+- title: AI & ML track
+  detail: >-
+    Agent tooling, AI security, search and retrieval, and model training: the layers of a production AI system.
+- title: Best for
+  detail: >-
+    Engineers who build, secure and run AI applications, from platform teams to ML practitioners.
+- title: Official exams, Astrona path
+  detail: >-
+    Four official Linux Foundation certifications; the Neuronaut title that groups them is awarded on Astrona only.
+entries:
+- name: Model Context Protocol Associate
+  short_name: MCPA
+  href: /exams/mcpa
+  icon_url: /certs/mcpa.svg
+- name: Secure AI Associate
+  short_name: SAIA
+  href: /exams/saia
+  icon_url: /certs/saia.svg
+- name: OpenSearch Certified Associate
+  short_name: OSCA
+  href: /exams/osca
+  icon_url: /certs/osca.svg
+- name: PyTorch Certified Associate
+  short_name: PTCA
+  href: /exams/ptca
+  icon_url: /certs/ptca.svg

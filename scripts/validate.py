@@ -179,7 +179,9 @@ for path in exam_files:
             where = "/".join(str(p) for p in err.absolute_path)
             errors.append(f"{rel}: certification{'/' + where if where else ''}: {err.message}")
         if isinstance(certification, dict) and isinstance(certification.get("questions_max"), int):
-            if certification["questions_max"] <= certification.get("questions", 0):
+            if not isinstance(certification.get("questions"), int):
+                errors.append(f"{rel}: certification: questions_max needs questions (the low end)")
+            elif certification["questions_max"] <= certification["questions"]:
                 errors.append(f"{rel}: certification: questions_max must be above questions")
     # lab_exam: the exam offers a hands-on exam (schema/lab-exam.schema.json).
     if "lab_exam" in exam:

@@ -1,0 +1,75 @@
+# Secure AI Associate — public exam definition.
+# Developed by the Linux Foundation with OpenSSF; on sale since 2026-11-24, scheduling opens at the end of December 2026.
+# Certification facts checked on 2026-11-26 against the Linux Foundation exam page;
+# the provider publishes no question count, so `questions` is left out.
+# Question banks are not here and never will be: this repository is public.
+long_name: Secure AI Associate
+status: in_test
+pass_score: 75
+max_breaks: 3
+certification:
+  provider: Linux Foundation
+  type: multiple_choice
+  duration_minutes: 90
+  delivery: online_proctored
+  retakes: 1
+  validity_years: 2
+  price_usd: 250
+  url: https://training.linuxfoundation.org/certification/secure-ai-associate-saia/
+description: |-
+  The Secure AI Associate (SAIA) certification from the Linux Foundation and OpenSSF validates foundational skills in finding and reducing security risk across the AI and machine learning lifecycle: threat modelling, securing data and datasets, model development, MLOps and the AI supply chain.
+
+  SAIA is a multiple-choice exam for beginners. It goes from LLM, RAG and agent application risks such as prompt injection and insecure output handling to the monitoring, incident response and governance of AI systems.
+
+  Practising with SAIA-style multiple-choice exams helps you connect each attack class to the controls that stop it and walk into exam day with confidence.
+domains:
+- name: AI/ML Security Foundations and Threat Modeling
+  weight: 16
+  description: |-
+    AI Threat Modeling
+    AI/ML Lifecycle Security
+    Core AI Attack Classes
+    Risk-Based Control Selection
+- name: Monitoring, Incident Response, and Governance
+  weight: 20
+  description: |-
+    AI Asset Identification, Inventory, and Ownership
+    AI Incident Response
+    AI Monitoring and Telemetry
+    Lifecycle Governance and Retirement
+    Trustworthy AI Principles
+- name: Secure AI Application, RAG, and Agent Design
+  weight: 20
+  description: |-
+    Agentic, Tool, and Function-Calling Security
+    Prompt Injection and Jailbreaks
+    Insecure Output Handling
+    Model Denial of Service and Cost Abuse
+    Overreliance and Human Oversight
+    RAG and Vector Security
+    Sensitive Information Disclosure
+- name: Secure Data and Dataset Governance
+  weight: 14
+  description: |-
+    Data Lineage, Versioning, and Provenance
+    Data Privacy, Classification, and Access Controls
+    Bias, Quality, and Representativeness
+    Dataset Integrity and Poisoning Resistance
+    Dataset Licensing and Permitted Use
+- name: Secure MLOps, Deployment, and Supply Chain
+  weight: 16
+  description: |-
+    AI Supply Chain Security and Bill of Materials (BOM)
+    Model Registry and Artifact Integrity Security
+    CI/CD and Pipeline Security for AI
+    Dependency and Vulnerability Management
+    Infrastructure and Orchestration Security
+    Secure Model Serving
+- name: Secure Model Development and Evaluation
+  weight: 14
+  description: |-
+    Model Documentation, Auditability, and Transparency
+    Adversarial ML & Robustness Testing
+    Model Versioning, Promotion, and Rollback
+    Privacy Leakage in Models
+    Secure Training Pipeline Practices
