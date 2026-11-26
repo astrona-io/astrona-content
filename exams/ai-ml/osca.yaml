@@ -1,0 +1,56 @@
+# OpenSearch Certified Associate — public exam definition.
+# Developed by the Linux Foundation with the OpenSearch Software Foundation; on sale since 2026-11-24, scheduling opens at the end of January 2027. No time limit published yet.
+# Certification facts checked on 2026-11-26 against the Linux Foundation exam page;
+# the provider publishes no question count, so `questions` is left out.
+# Question banks are not here and never will be: this repository is public.
+long_name: OpenSearch Certified Associate
+status: in_test
+pass_score: 75
+max_breaks: 3
+certification:
+  provider: Linux Foundation
+  type: multiple_choice
+  delivery: online_proctored
+  retakes: 1
+  validity_years: 2
+  price_usd: 250
+  url: https://training.linuxfoundation.org/certification/opensearch-certified-associate/
+description: |-
+  The OpenSearch Certified Associate (OSCA) certification from the Linux Foundation and the OpenSearch Software Foundation validates foundational OpenSearch skills: search and relevance, including vector, hybrid and AI-powered search, observability and log analytics, and how a cluster is built and run.
+
+  OSCA is a multiple-choice exam for beginners. It also covers ingestion pipelines, index mappings and templates, and the basics of security and access control.
+
+  Practising with OSCA-style multiple-choice exams helps you tell close options apart and walk into exam day with confidence.
+domains:
+- name: Search & Relevance Including AI
+  weight: 30
+  description: |-
+    Vector, Hybrid & AI-Powered Search
+    Query DSL Fundamentals
+    Search Relevance & Tuning
+    AI RAG & Agentic Patterns
+- name: Observability & Log Analytics
+  weight: 30
+  description: |-
+    Discover Dashboards & AI Assistant
+    Observability & Analytics Use Cases
+    Aggregations & Data Summarization
+    Anomaly Detection & Threat Analytics
+- name: Cluster Operations & Architecture
+  weight: 16
+  description: |-
+    Indices, Shards & High Availability
+    Cluster Architecture & Node Roles
+    Sizing, Cost & Snapshots
+- name: Ingestion & Pipelines
+  weight: 12
+  description: |-
+    Indexing & Mappings
+    Index Templates & Index State Management (ISM)
+    Data Prepper & OpenTelemetry Ingestion
+- name: Security & Access Control
+  weight: 12
+  description: |-
+    Identity Provider Integration & Audit Logging
+    Authentication & Role-Based Access Control (RBAC)
+    Encryption & TLS

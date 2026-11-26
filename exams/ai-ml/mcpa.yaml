@@ -1,0 +1,57 @@
+# Model Context Protocol Associate — public exam definition.
+# Launched by the Agentic AI Foundation and Linux Foundation Education on 2026-09-14.
+# Certification facts checked on 2026-11-26 against the Linux Foundation exam page;
+# the provider publishes no question count, so `questions` is left out.
+# Question banks are not here and never will be: this repository is public.
+long_name: Model Context Protocol Associate
+status: in_test
+pass_score: 75
+max_breaks: 3
+certification:
+  provider: Linux Foundation
+  type: multiple_choice
+  duration_minutes: 90
+  delivery: online_proctored
+  retakes: 1
+  validity_years: 2
+  price_usd: 250
+  url: https://training.linuxfoundation.org/certification/model-context-protocol-associate-mcpa/
+description: |-
+  The Model Context Protocol Associate (MCPA) certification from the Agentic AI Foundation and Linux Foundation Education validates that you understand how the Model Context Protocol connects AI applications to tools and data: why MCP exists, how hosts, clients and servers talk to each other, the protocol primitives and the tool invocation lifecycle.
+
+  MCPA is a multiple-choice exam for beginners. It also covers the security side of MCP integrations (trust boundaries, permissions and consent, auditability) and where MCP fits in the agentic AI ecosystem.
+
+  Practising with MCPA-style multiple-choice exams helps you learn the vocabulary, spot answers that only look right and walk into exam day with confidence.
+domains:
+- name: MCP Fundamentals
+  weight: 16
+  description: |-
+    MCP Purpose & Scope
+    Core MCP Concepts
+    Interoperability & Value
+- name: Architecture & Components
+  weight: 14
+  description: |-
+    Schemas & Structured Data
+    MCP Hosts, Clients and Servers
+    Model Interaction Flow
+- name: Interactions & Execution
+  weight: 26
+  description: |-
+    Interaction Patterns & Response Handling
+    Error Handling
+    Tool Invocation Lifecycle
+    Protocol Primitives
+- name: Security & Governance
+  weight: 24
+  description: |-
+    Trust Boundaries
+    Permissions & Consent
+    Risk & Safety Controls
+    Auditability & Observability
+- name: Use Cases & Ecosystem
+  weight: 20
+  description: |-
+    Roles, Responsibilities & Adoption
+    Operational Use Cases
+    Ecosystem & Portability

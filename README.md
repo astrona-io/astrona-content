@@ -6,7 +6,7 @@ top-level folder:
 
 - **program pages**: the ecosystem landscapes (`/cncf-landscape`,
   `/landscape/apache`, …) and the certification paths (`/kubestronaut`,
-  `/golden-kubestronaut`);
+  `/golden-kubestronaut`, `/neuronaut`);
 - **knowledge hub**: the sections, topics and articles under `/knowledge-hub`;
 - **exams**: each exam's public definition (`/exams/<name>`) — name, description,
   pass score and its domains with their weights. Never the questions: question
@@ -65,7 +65,10 @@ entries:                        # the cards, in order
 ```
 
 Fields you leave out take their defaults (`status: available`,
-`is_active: true` for entries). The full list is in
+`is_active: true` for entries). A certification path Astrona groups itself
+(Neuronaut: official Linux Foundation exams, but no programme title from the
+Linux Foundation) sets
+`official: false`, and the site labels it as Astrona's own. The full list is in
 [`schema/program-page.schema.json`](schema/program-page.schema.json); editors
 that understand JSON Schema (VS Code with the YAML extension, JetBrains) can use
 it for completion.
@@ -158,7 +161,8 @@ is archived, not deleted.
 
 The real certification's facts, shown on the exam page (the hero chips and the
 format tooltip). Take every value from the provider's official pages: the
-product page, its FAQ and its exam instructions. The pass score shown is the
+product page, its FAQ and its exam instructions. Leave out `questions` or
+`duration_minutes` while the provider publishes none; never guess them. The pass score shown is the
 exam's own `pass_score`.
 
 ```yaml

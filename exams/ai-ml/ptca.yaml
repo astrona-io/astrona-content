@@ -1,0 +1,48 @@
+# PyTorch Certified Associate — public exam definition.
+# Launched by Linux Foundation Education with the PyTorch Foundation in 2026.
+# Certification facts checked on 2026-11-26 against the Linux Foundation exam page;
+# the provider publishes no question count, so `questions` is left out.
+# Question banks are not here and never will be: this repository is public.
+long_name: PyTorch Certified Associate
+status: in_test
+pass_score: 75
+max_breaks: 3
+certification:
+  provider: Linux Foundation
+  type: multiple_choice
+  duration_minutes: 120
+  delivery: online_proctored
+  retakes: 1
+  validity_years: 2
+  price_usd: 250
+  url: https://training.linuxfoundation.org/certification/pytorch-certified-associate-ptca/
+description: |-
+  The PyTorch Certified Associate (PTCA) certification from Linux Foundation Education and the PyTorch Foundation validates entry-level ability to build, train, test and use models in PyTorch: tensors and devices, neural network building blocks, datasets and DataLoaders.
+
+  PTCA is a multiple-choice exam for practitioners with some Python and machine learning experience. It also covers precision and execution optimisation, performance measurement and the basics of distributed training.
+
+  Practising with PTCA-style multiple-choice exams helps you check what each API really does and walk into exam day with confidence.
+domains:
+- name: PyTorch Fundamentals
+  weight: 38
+  description: |-
+    Core Concepts
+    Tensors
+    Training, Testing, and Using Models
+    Device Basics (CPU, CUDA, MPS, etc)
+- name: Model Development
+  weight: 20
+  description: PyTorch Neural Network (NN) Building Blocks
+- name: Performance & Optimization
+  weight: 26
+  description: |-
+    Precision and Execution Optimization
+    Performance Measurement
+    Distributed Training
+- name: Data Handling
+  weight: 16
+  description: |-
+    Datasets
+    DataLoaders
+    Transforms
+    Training Data

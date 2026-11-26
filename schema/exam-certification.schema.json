@@ -4,7 +4,7 @@
   "description": "The `certification` block of an exam (exams/<group>/<exam>.yaml): the real certification's facts, taken from the provider's official pages and shown on the exam page. The pass score is the exam's own `pass_score`.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["provider", "type", "questions", "duration_minutes"],
+  "required": ["provider", "type"],
   "properties": {
     "provider": {
       "type": "string",
@@ -19,7 +19,7 @@
     "questions": {
       "type": "integer",
       "minimum": 1,
-      "description": "Questions (or tasks) in the exam; the low end when questions_max is set."
+      "description": "Questions (or tasks) in the exam; the low end when questions_max is set. Leave out while the provider publishes no count."
     },
     "questions_max": {
       "type": "integer",
